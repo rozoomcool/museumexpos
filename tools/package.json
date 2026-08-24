@@ -1,0 +1,7 @@
+{
+  "name": "chrexpo-tools",
+  "private": true,
+  "dependencies": {
+    "@gltf-transform/cli": "^4.2.1"
+  }
+}

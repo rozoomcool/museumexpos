@@ -1,0 +1,3 @@
+tags:
+  golden:
+    description: Снимки раскладки; обновляются через flutter test --update-goldens
