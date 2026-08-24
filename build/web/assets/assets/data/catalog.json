@@ -1,0 +1,1144 @@
+{
+  "title": "Экспонаты ЧР",
+  "subtitle": "Кураторская подборка 60 экспонатов",
+  "categories": [
+    {
+      "id": "armour-and-weapons",
+      "title": "Доспехи и оружие",
+      "icon": "shield",
+      "exhibits": [
+        {
+          "id": "001-rekonstrukciya-vooruzheniya-chechenskogo",
+          "number": 1,
+          "title": "Реконструкция вооружения чеченского воина",
+          "categoryId": "armour-and-weapons",
+          "reason": "Самый цельный и мгновенно узнаваемый образ коллекции: кольчуга, щит и поясное вооружение работают как главный визуальный символ.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "documents/museum_wall_display_028",
+          "photos": [
+            "assets/photos/001-rekonstrukciya-vooruzheniya-chechenskogo_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/001-rekonstrukciya-vooruzheniya-chechenskogo_01.jpg"
+          ],
+          "model": "assets/models/001-rekonstrukciya-vooruzheniya-chechenskogo.glb"
+        },
+        {
+          "id": "002-kolchuzhno-plastinchatyy-dospeh-s-boevoy",
+          "number": 2,
+          "title": "Кольчужно-пластинчатый доспех с боевой маской",
+          "categoryId": "armour-and-weapons",
+          "reason": "Редкий и очень выразительный комплекс, где особенно впечатляют металлическая маска, кольчуга и пластинчатое оплечье.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "ceramics/ceramic_vessel_with_lid_022; textiles/textile_fragment_010; textiles/textile_fragment_011; documents/museum_wall_display_024; metal/chainmail_armor_004",
+          "photos": [
+            "assets/photos/002-kolchuzhno-plastinchatyy-dospeh-s-boevoy_01.jpg",
+            "assets/photos/002-kolchuzhno-plastinchatyy-dospeh-s-boevoy_02.jpg",
+            "assets/photos/002-kolchuzhno-plastinchatyy-dospeh-s-boevoy_03.jpg",
+            "assets/photos/002-kolchuzhno-plastinchatyy-dospeh-s-boevoy_04.jpg",
+            "assets/photos/002-kolchuzhno-plastinchatyy-dospeh-s-boevoy_05.jpg",
+            "assets/photos/002-kolchuzhno-plastinchatyy-dospeh-s-boevoy_06.jpg",
+            "assets/photos/002-kolchuzhno-plastinchatyy-dospeh-s-boevoy_07.jpg",
+            "assets/photos/002-kolchuzhno-plastinchatyy-dospeh-s-boevoy_08.jpg",
+            "assets/photos/002-kolchuzhno-plastinchatyy-dospeh-s-boevoy_09.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/002-kolchuzhno-plastinchatyy-dospeh-s-boevoy_01.jpg",
+            "assets/thumbs/002-kolchuzhno-plastinchatyy-dospeh-s-boevoy_02.jpg",
+            "assets/thumbs/002-kolchuzhno-plastinchatyy-dospeh-s-boevoy_03.jpg",
+            "assets/thumbs/002-kolchuzhno-plastinchatyy-dospeh-s-boevoy_04.jpg",
+            "assets/thumbs/002-kolchuzhno-plastinchatyy-dospeh-s-boevoy_05.jpg",
+            "assets/thumbs/002-kolchuzhno-plastinchatyy-dospeh-s-boevoy_06.jpg",
+            "assets/thumbs/002-kolchuzhno-plastinchatyy-dospeh-s-boevoy_07.jpg",
+            "assets/thumbs/002-kolchuzhno-plastinchatyy-dospeh-s-boevoy_08.jpg",
+            "assets/thumbs/002-kolchuzhno-plastinchatyy-dospeh-s-boevoy_09.jpg"
+          ],
+          "model": "assets/models/002-kolchuzhno-plastinchatyy-dospeh-s-boevoy.glb"
+        },
+        {
+          "id": "003-ostrokonechnyy-boevoy-shlem",
+          "number": 3,
+          "title": "Остроконечный боевой шлем",
+          "categoryId": "armour-and-weapons",
+          "reason": "Сильный силуэт и хорошо читаемая конструкция делают шлем одним из лучших самостоятельных объектов оружейной части.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "ceramics/ceramic_vessel_with_lid_010; ceramics/ceramic_vessel_with_lid_011; metal/metal_helmet_001",
+          "photos": [
+            "assets/photos/003-ostrokonechnyy-boevoy-shlem_01.jpg",
+            "assets/photos/003-ostrokonechnyy-boevoy-shlem_02.jpg",
+            "assets/photos/003-ostrokonechnyy-boevoy-shlem_03.jpg",
+            "assets/photos/003-ostrokonechnyy-boevoy-shlem_04.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/003-ostrokonechnyy-boevoy-shlem_01.jpg",
+            "assets/thumbs/003-ostrokonechnyy-boevoy-shlem_02.jpg",
+            "assets/thumbs/003-ostrokonechnyy-boevoy-shlem_03.jpg",
+            "assets/thumbs/003-ostrokonechnyy-boevoy-shlem_04.jpg"
+          ],
+          "model": "assets/models/003-ostrokonechnyy-boevoy-shlem.glb"
+        },
+        {
+          "id": "004-kinzhal-v-serebryanyh-nozhnah",
+          "number": 4,
+          "title": "Кинжал в серебряных ножнах",
+          "categoryId": "armour-and-weapons",
+          "reason": "Богатая гравировка, цельный комплект и отличная сохранность дают предмету выставочный уровень.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "ceramics/ceramic_fragment_024; wood/wooden_tool_011",
+          "photos": [
+            "assets/photos/004-kinzhal-v-serebryanyh-nozhnah_01.jpg",
+            "assets/photos/004-kinzhal-v-serebryanyh-nozhnah_02.jpg",
+            "assets/photos/004-kinzhal-v-serebryanyh-nozhnah_03.jpg",
+            "assets/photos/004-kinzhal-v-serebryanyh-nozhnah_04.jpg",
+            "assets/photos/004-kinzhal-v-serebryanyh-nozhnah_05.jpg",
+            "assets/photos/004-kinzhal-v-serebryanyh-nozhnah_06.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/004-kinzhal-v-serebryanyh-nozhnah_01.jpg",
+            "assets/thumbs/004-kinzhal-v-serebryanyh-nozhnah_02.jpg",
+            "assets/thumbs/004-kinzhal-v-serebryanyh-nozhnah_03.jpg",
+            "assets/thumbs/004-kinzhal-v-serebryanyh-nozhnah_04.jpg",
+            "assets/thumbs/004-kinzhal-v-serebryanyh-nozhnah_05.jpg",
+            "assets/thumbs/004-kinzhal-v-serebryanyh-nozhnah_06.jpg"
+          ],
+          "model": "assets/models/004-kinzhal-v-serebryanyh-nozhnah.glb"
+        },
+        {
+          "id": "009-polevoe-artilleriyskoe-orudie",
+          "number": 9,
+          "title": "Полевое артиллерийское орудие",
+          "categoryId": "armour-and-weapons",
+          "reason": "Крупный трехмерный объект сразу меняет масштаб экспозиции и хорошо работает как визуальный якорь военного раздела.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "documents/museum_wall_display_002",
+          "photos": [
+            "assets/photos/009-polevoe-artilleriyskoe-orudie_01.jpg",
+            "assets/photos/009-polevoe-artilleriyskoe-orudie_02.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/009-polevoe-artilleriyskoe-orudie_01.jpg",
+            "assets/thumbs/009-polevoe-artilleriyskoe-orudie_02.jpg"
+          ],
+          "model": "assets/models/009-polevoe-artilleriyskoe-orudie.glb"
+        },
+        {
+          "id": "011-kinzhal-s-rukoyatyu-pod-kost",
+          "number": 11,
+          "title": "Кинжал с рукоятью под кость",
+          "categoryId": "armour-and-weapons",
+          "reason": "Контраст светлой рукояти, темного клинка и металлического декора делает предмет особенно фотогеничным.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "ceramics/ceramic_fragment_032",
+          "photos": [
+            "assets/photos/011-kinzhal-s-rukoyatyu-pod-kost_01.jpg",
+            "assets/photos/011-kinzhal-s-rukoyatyu-pod-kost_02.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/011-kinzhal-s-rukoyatyu-pod-kost_01.jpg",
+            "assets/thumbs/011-kinzhal-s-rukoyatyu-pod-kost_02.jpg"
+          ],
+          "model": "assets/models/011-kinzhal-s-rukoyatyu-pod-kost.glb"
+        },
+        {
+          "id": "012-arheologicheskiy-bronzovyy-kinzhal",
+          "number": 12,
+          "title": "Археологический бронзовый кинжал",
+          "categoryId": "armour-and-weapons",
+          "reason": "Лаконичная древняя форма и хорошая читаемость силуэта позволяют показать развитие оружия задолго до поздних парадных кинжалов.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "metal/bronze_brooch_016",
+          "photos": [
+            "assets/photos/012-arheologicheskiy-bronzovyy-kinzhal_01.jpg",
+            "assets/photos/012-arheologicheskiy-bronzovyy-kinzhal_02.jpg",
+            "assets/photos/012-arheologicheskiy-bronzovyy-kinzhal_03.jpg",
+            "assets/photos/012-arheologicheskiy-bronzovyy-kinzhal_04.jpg",
+            "assets/photos/012-arheologicheskiy-bronzovyy-kinzhal_05.jpg",
+            "assets/photos/012-arheologicheskiy-bronzovyy-kinzhal_06.jpg",
+            "assets/photos/012-arheologicheskiy-bronzovyy-kinzhal_07.jpg",
+            "assets/photos/012-arheologicheskiy-bronzovyy-kinzhal_08.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/012-arheologicheskiy-bronzovyy-kinzhal_01.jpg",
+            "assets/thumbs/012-arheologicheskiy-bronzovyy-kinzhal_02.jpg",
+            "assets/thumbs/012-arheologicheskiy-bronzovyy-kinzhal_03.jpg",
+            "assets/thumbs/012-arheologicheskiy-bronzovyy-kinzhal_04.jpg",
+            "assets/thumbs/012-arheologicheskiy-bronzovyy-kinzhal_05.jpg",
+            "assets/thumbs/012-arheologicheskiy-bronzovyy-kinzhal_06.jpg",
+            "assets/thumbs/012-arheologicheskiy-bronzovyy-kinzhal_07.jpg",
+            "assets/thumbs/012-arheologicheskiy-bronzovyy-kinzhal_08.jpg"
+          ],
+          "model": "assets/models/012-arheologicheskiy-bronzovyy-kinzhal.glb"
+        },
+        {
+          "id": "015-pryamoy-kinzhal-s-bogato-ukrashennymi",
+          "number": 15,
+          "title": "Прямой кинжал с богато украшенными ножнами",
+          "categoryId": "armour-and-weapons",
+          "reason": "Тонкий орнамент на ножнах и пропорциональный клинок дают предмету сильный парадный характер.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "ceramics/ceramic_fragment_026",
+          "photos": [
+            "assets/photos/015-pryamoy-kinzhal-s-bogato-ukrashennymi_01.jpg",
+            "assets/photos/015-pryamoy-kinzhal-s-bogato-ukrashennymi_02.jpg",
+            "assets/photos/015-pryamoy-kinzhal-s-bogato-ukrashennymi_03.jpg",
+            "assets/photos/015-pryamoy-kinzhal-s-bogato-ukrashennymi_04.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/015-pryamoy-kinzhal-s-bogato-ukrashennymi_01.jpg",
+            "assets/thumbs/015-pryamoy-kinzhal-s-bogato-ukrashennymi_02.jpg",
+            "assets/thumbs/015-pryamoy-kinzhal-s-bogato-ukrashennymi_03.jpg",
+            "assets/thumbs/015-pryamoy-kinzhal-s-bogato-ukrashennymi_04.jpg"
+          ],
+          "model": "assets/models/015-pryamoy-kinzhal-s-bogato-ukrashennymi.glb"
+        },
+        {
+          "id": "016-izognutyy-kinzhal-v-nozhnah",
+          "number": 16,
+          "title": "Изогнутый кинжал в ножнах",
+          "categoryId": "armour-and-weapons",
+          "reason": "Необычная изогнутая форма выделяет этот предмет среди большинства прямых клинков коллекции.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "ceramics/ceramic_fragment_015",
+          "photos": [
+            "assets/photos/016-izognutyy-kinzhal-v-nozhnah_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/016-izognutyy-kinzhal-v-nozhnah_01.jpg"
+          ],
+          "model": "assets/models/016-izognutyy-kinzhal-v-nozhnah.glb"
+        },
+        {
+          "id": "019-stankovyy-pulemet",
+          "number": 19,
+          "title": "Станковый пулемет",
+          "categoryId": "armour-and-weapons",
+          "reason": "Крупный и технически выразительный объект дает сильный контраст с холодным оружием и археологическими находками.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "metal/bronze_brooch_049",
+          "photos": [
+            "assets/photos/019-stankovyy-pulemet_01.jpg",
+            "assets/photos/019-stankovyy-pulemet_02.jpg",
+            "assets/photos/019-stankovyy-pulemet_03.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/019-stankovyy-pulemet_01.jpg",
+            "assets/thumbs/019-stankovyy-pulemet_02.jpg",
+            "assets/thumbs/019-stankovyy-pulemet_03.jpg"
+          ],
+          "model": "assets/models/019-stankovyy-pulemet.glb"
+        },
+        {
+          "id": "021-voennyy-pistolet",
+          "number": 21,
+          "title": "Военный пистолет",
+          "categoryId": "armour-and-weapons",
+          "reason": "Компактный, узнаваемый и хорошо сохранившийся предмет новейшей военной истории.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "metal/bronze_brooch_050",
+          "photos": [
+            "assets/photos/021-voennyy-pistolet_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/021-voennyy-pistolet_01.jpg"
+          ],
+          "model": "assets/models/021-voennyy-pistolet.glb"
+        },
+        {
+          "id": "022-kinzhal-s-parnymi-nozhnami",
+          "number": 22,
+          "title": "Кинжал с парными ножнами",
+          "categoryId": "armour-and-weapons",
+          "reason": "Полный комплект позволяет одновременно увидеть форму клинка и оформление ножен.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "metal/rusty_knife_024",
+          "photos": [
+            "assets/photos/022-kinzhal-s-parnymi-nozhnami_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/022-kinzhal-s-parnymi-nozhnami_01.jpg"
+          ],
+          "model": "assets/models/022-kinzhal-s-parnymi-nozhnami.glb"
+        },
+        {
+          "id": "030-sostavnoy-tradicionnyy-luk",
+          "number": 30,
+          "title": "Составной традиционный лук",
+          "categoryId": "armour-and-weapons",
+          "reason": "Редкий по форме крупный предмет добавляет в оружейный раздел дальнобойное оружие и новый силуэт.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "wood/wooden_branch_002",
+          "photos": [
+            "assets/photos/030-sostavnoy-tradicionnyy-luk_01.jpg",
+            "assets/photos/030-sostavnoy-tradicionnyy-luk_02.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/030-sostavnoy-tradicionnyy-luk_01.jpg",
+            "assets/thumbs/030-sostavnoy-tradicionnyy-luk_02.jpg"
+          ],
+          "model": "assets/models/030-sostavnoy-tradicionnyy-luk.glb"
+        },
+        {
+          "id": "031-voennaya-vintovka",
+          "number": 31,
+          "title": "Военная винтовка",
+          "categoryId": "armour-and-weapons",
+          "reason": "Хорошо читаемый полный профиль оружия и качественная музейная подача делают предмет сильным для раздела новейшей истории.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "metal/metal_strip_003",
+          "photos": [
+            "assets/photos/031-voennaya-vintovka_01.jpg",
+            "assets/photos/031-voennaya-vintovka_02.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/031-voennaya-vintovka_01.jpg",
+            "assets/thumbs/031-voennaya-vintovka_02.jpg"
+          ],
+          "model": "assets/models/031-voennaya-vintovka.glb"
+        },
+        {
+          "id": "060-kinzhal-s-chernymi-nozhnami",
+          "number": 60,
+          "title": "Кинжал с черными ножнами",
+          "categoryId": "armour-and-weapons",
+          "reason": "Строгий темный комплект завершает оружейную подборку и отличается от более декоративных серебряных образцов.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "ceramics/ceramic_fragment_017",
+          "photos": [
+            "assets/photos/060-kinzhal-s-chernymi-nozhnami_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/060-kinzhal-s-chernymi-nozhnami_01.jpg"
+          ],
+          "model": "assets/models/060-kinzhal-s-chernymi-nozhnami.glb"
+        }
+      ]
+    },
+    {
+      "id": "costume-and-jewellery",
+      "title": "Костюм и украшения",
+      "icon": "costume",
+      "exhibits": [
+        {
+          "id": "006-zhenskiy-ceremonialnyy-nagrudnik-s-zolotym",
+          "number": 6,
+          "title": "Женский церемониальный нагрудник с золотым декором",
+          "categoryId": "costume-and-jewellery",
+          "reason": "Сложная металлическая отделка и насыщенный цвет ткани делают этот элемент костюма одним из самых эффектных в подборке.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "textiles/textile_fragment_027",
+          "photos": [
+            "assets/photos/006-zhenskiy-ceremonialnyy-nagrudnik-s-zolotym_01.jpg",
+            "assets/photos/006-zhenskiy-ceremonialnyy-nagrudnik-s-zolotym_02.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/006-zhenskiy-ceremonialnyy-nagrudnik-s-zolotym_01.jpg",
+            "assets/thumbs/006-zhenskiy-ceremonialnyy-nagrudnik-s-zolotym_02.jpg"
+          ],
+          "model": null
+        },
+        {
+          "id": "007-poyas-s-biryuzoy-i-filigranyu",
+          "number": 7,
+          "title": "Пояс с бирюзой и филигранью",
+          "categoryId": "costume-and-jewellery",
+          "reason": "Тонкая работа по металлу, цветные вставки и центральная пряжка дают редкое сочетание ювелирности и масштаба.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "metal/bronze_bracelet_023",
+          "photos": [
+            "assets/photos/007-poyas-s-biryuzoy-i-filigranyu_01.jpg",
+            "assets/photos/007-poyas-s-biryuzoy-i-filigranyu_02.jpg",
+            "assets/photos/007-poyas-s-biryuzoy-i-filigranyu_03.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/007-poyas-s-biryuzoy-i-filigranyu_01.jpg",
+            "assets/thumbs/007-poyas-s-biryuzoy-i-filigranyu_02.jpg",
+            "assets/thumbs/007-poyas-s-biryuzoy-i-filigranyu_03.jpg"
+          ],
+          "model": "assets/models/007-poyas-s-biryuzoy-i-filigranyu.glb"
+        },
+        {
+          "id": "010-muzhskaya-cherkeska-s-gazyryami",
+          "number": 10,
+          "title": "Мужская черкеска с газырями",
+          "categoryId": "costume-and-jewellery",
+          "reason": "Цельный национальный костюм с узнаваемым силуэтом, декоративными газырями и поясным оружием.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "metal/chainmail_armor_003; textiles/dress_002; textiles/textile_fragment_002",
+          "photos": [
+            "assets/photos/010-muzhskaya-cherkeska-s-gazyryami_01.jpg",
+            "assets/photos/010-muzhskaya-cherkeska-s-gazyryami_02.jpg",
+            "assets/photos/010-muzhskaya-cherkeska-s-gazyryami_03.jpg",
+            "assets/photos/010-muzhskaya-cherkeska-s-gazyryami_04.jpg",
+            "assets/photos/010-muzhskaya-cherkeska-s-gazyryami_05.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/010-muzhskaya-cherkeska-s-gazyryami_01.jpg",
+            "assets/thumbs/010-muzhskaya-cherkeska-s-gazyryami_02.jpg",
+            "assets/thumbs/010-muzhskaya-cherkeska-s-gazyryami_03.jpg",
+            "assets/thumbs/010-muzhskaya-cherkeska-s-gazyryami_04.jpg",
+            "assets/thumbs/010-muzhskaya-cherkeska-s-gazyryami_05.jpg"
+          ],
+          "model": "assets/models/010-muzhskaya-cherkeska-s-gazyryami.glb"
+        },
+        {
+          "id": "014-chernyy-zhenskiy-nagrudnik-s-serebryanoy",
+          "number": 14,
+          "title": "Черный женский нагрудник с серебряной отделкой",
+          "categoryId": "costume-and-jewellery",
+          "reason": "Строгая цветовая гамма подчеркивает сложный ритм застежек и ювелирную работу по металлу.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "textiles/textile_fragment_029",
+          "photos": [
+            "assets/photos/014-chernyy-zhenskiy-nagrudnik-s-serebryanoy_01.jpg",
+            "assets/photos/014-chernyy-zhenskiy-nagrudnik-s-serebryanoy_02.jpg",
+            "assets/photos/014-chernyy-zhenskiy-nagrudnik-s-serebryanoy_03.jpg",
+            "assets/photos/014-chernyy-zhenskiy-nagrudnik-s-serebryanoy_04.jpg",
+            "assets/photos/014-chernyy-zhenskiy-nagrudnik-s-serebryanoy_05.jpg",
+            "assets/photos/014-chernyy-zhenskiy-nagrudnik-s-serebryanoy_06.jpg",
+            "assets/photos/014-chernyy-zhenskiy-nagrudnik-s-serebryanoy_07.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/014-chernyy-zhenskiy-nagrudnik-s-serebryanoy_01.jpg",
+            "assets/thumbs/014-chernyy-zhenskiy-nagrudnik-s-serebryanoy_02.jpg",
+            "assets/thumbs/014-chernyy-zhenskiy-nagrudnik-s-serebryanoy_03.jpg",
+            "assets/thumbs/014-chernyy-zhenskiy-nagrudnik-s-serebryanoy_04.jpg",
+            "assets/thumbs/014-chernyy-zhenskiy-nagrudnik-s-serebryanoy_05.jpg",
+            "assets/thumbs/014-chernyy-zhenskiy-nagrudnik-s-serebryanoy_06.jpg",
+            "assets/thumbs/014-chernyy-zhenskiy-nagrudnik-s-serebryanoy_07.jpg"
+          ],
+          "model": "assets/models/014-chernyy-zhenskiy-nagrudnik-s-serebryanoy.glb"
+        },
+        {
+          "id": "018-parnyy-kompleks-muzhskogo-i-zhenskogo",
+          "number": 18,
+          "title": "Парный комплекс мужского и женского национального костюма",
+          "categoryId": "costume-and-jewellery",
+          "reason": "Парная подача показывает костюм как целостную культурную систему, а не набор отдельных декоративных деталей.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "textiles/costume_001; textiles/textile_fragment_016",
+          "photos": [
+            "assets/photos/018-parnyy-kompleks-muzhskogo-i-zhenskogo_01.jpg",
+            "assets/photos/018-parnyy-kompleks-muzhskogo-i-zhenskogo_02.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/018-parnyy-kompleks-muzhskogo-i-zhenskogo_01.jpg",
+            "assets/thumbs/018-parnyy-kompleks-muzhskogo-i-zhenskogo_02.jpg"
+          ],
+          "model": null
+        },
+        {
+          "id": "023-poyasnoy-nabor-voina-s-podvesami",
+          "number": 23,
+          "title": "Поясной набор воина с подвесами",
+          "categoryId": "costume-and-jewellery",
+          "reason": "Редкий целостный набор показывает, как оружие и снаряжение крепились к традиционному поясу.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "metal/bronze_brooch_067",
+          "photos": [
+            "assets/photos/023-poyasnoy-nabor-voina-s-podvesami_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/023-poyasnoy-nabor-voina-s-podvesami_01.jpg"
+          ],
+          "model": "assets/models/023-poyasnoy-nabor-voina-s-podvesami.glb"
+        },
+        {
+          "id": "028-serebryanyy-poyas-s-azhurnoy-pryazhkoy",
+          "number": 28,
+          "title": "Серебряный пояс с ажурной пряжкой",
+          "categoryId": "costume-and-jewellery",
+          "reason": "Цельный пояс с тонкой повторяющейся орнаментикой выглядит как крупное ювелирное изделие.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "metal/bronze_bracelet_021; ceramics/ceramic_fragment_012",
+          "photos": [
+            "assets/photos/028-serebryanyy-poyas-s-azhurnoy-pryazhkoy_01.jpg",
+            "assets/photos/028-serebryanyy-poyas-s-azhurnoy-pryazhkoy_02.jpg",
+            "assets/photos/028-serebryanyy-poyas-s-azhurnoy-pryazhkoy_03.jpg",
+            "assets/photos/028-serebryanyy-poyas-s-azhurnoy-pryazhkoy_04.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/028-serebryanyy-poyas-s-azhurnoy-pryazhkoy_01.jpg",
+            "assets/thumbs/028-serebryanyy-poyas-s-azhurnoy-pryazhkoy_02.jpg",
+            "assets/thumbs/028-serebryanyy-poyas-s-azhurnoy-pryazhkoy_03.jpg",
+            "assets/thumbs/028-serebryanyy-poyas-s-azhurnoy-pryazhkoy_04.jpg"
+          ],
+          "model": "assets/models/028-serebryanyy-poyas-s-azhurnoy-pryazhkoy.glb"
+        },
+        {
+          "id": "039-ozherele-iz-raznocvetnyh-bus",
+          "number": 39,
+          "title": "Ожерелье из разноцветных бус",
+          "categoryId": "costume-and-jewellery",
+          "reason": "Разнообразие материала, цвета и формы бус дает яркий и человечный акцент среди металлических предметов.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "metal/beaded_bracelet_001",
+          "photos": [
+            "assets/photos/039-ozherele-iz-raznocvetnyh-bus_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/039-ozherele-iz-raznocvetnyh-bus_01.jpg"
+          ],
+          "model": "assets/models/039-ozherele-iz-raznocvetnyh-bus.glb"
+        },
+        {
+          "id": "040-parnyy-nabor-serebryanyh-poyasov",
+          "number": 40,
+          "title": "Парный набор серебряных поясов",
+          "categoryId": "costume-and-jewellery",
+          "reason": "Два согласованных по декору пояса на красном фоне дают сильную симметричную композицию и позволяют сравнить варианты ювелирной отделки.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "ceramics/ceramic_fragment_014",
+          "photos": [
+            "assets/photos/040-parnyy-nabor-serebryanyh-poyasov_01.jpg",
+            "assets/photos/040-parnyy-nabor-serebryanyh-poyasov_02.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/040-parnyy-nabor-serebryanyh-poyasov_01.jpg",
+            "assets/thumbs/040-parnyy-nabor-serebryanyh-poyasov_02.jpg"
+          ],
+          "model": null
+        },
+        {
+          "id": "041-prazdnichnaya-zastezhka-zhenskogo-platya",
+          "number": 41,
+          "title": "Праздничная застежка женского платья",
+          "categoryId": "costume-and-jewellery",
+          "reason": "Ювелирная застежка на яркой ткани хорошо показывает связь костюма и декоративного металла.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "textiles/textile_fragment_030",
+          "photos": [
+            "assets/photos/041-prazdnichnaya-zastezhka-zhenskogo-platya_01.jpg",
+            "assets/photos/041-prazdnichnaya-zastezhka-zhenskogo-platya_02.jpg",
+            "assets/photos/041-prazdnichnaya-zastezhka-zhenskogo-platya_03.jpg",
+            "assets/photos/041-prazdnichnaya-zastezhka-zhenskogo-platya_04.jpg",
+            "assets/photos/041-prazdnichnaya-zastezhka-zhenskogo-platya_05.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/041-prazdnichnaya-zastezhka-zhenskogo-platya_01.jpg",
+            "assets/thumbs/041-prazdnichnaya-zastezhka-zhenskogo-platya_02.jpg",
+            "assets/thumbs/041-prazdnichnaya-zastezhka-zhenskogo-platya_03.jpg",
+            "assets/thumbs/041-prazdnichnaya-zastezhka-zhenskogo-platya_04.jpg",
+            "assets/thumbs/041-prazdnichnaya-zastezhka-zhenskogo-platya_05.jpg"
+          ],
+          "model": "assets/models/041-prazdnichnaya-zastezhka-zhenskogo-platya.glb"
+        },
+        {
+          "id": "042-belaya-tkanaya-shal",
+          "number": 42,
+          "title": "Белая тканая шаль",
+          "categoryId": "costume-and-jewellery",
+          "reason": "Тонкий рисунок ткани и ручная отделка добавляют в подборку хрупкий текстильный материал.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "textiles/textile_fragment_013",
+          "photos": [
+            "assets/photos/042-belaya-tkanaya-shal_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/042-belaya-tkanaya-shal_01.jpg"
+          ],
+          "model": null
+        }
+      ]
+    },
+    {
+      "id": "archaeology",
+      "title": "Археология",
+      "icon": "amphora",
+      "exhibits": [
+        {
+          "id": "005-kollekciya-terrakotovyh-figurok-vsadnikov-i",
+          "number": 5,
+          "title": "Коллекция терракотовых фигурок всадников и животных",
+          "categoryId": "archaeology",
+          "reason": "Небольшие фигурки складываются в живую археологическую сцену и дают сильный материал для рассказа о древнем быте и верованиях.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "ceramics/ceramic_fragment_009",
+          "photos": [
+            "assets/photos/005-kollekciya-terrakotovyh-figurok-vsadnikov-i_01.jpg",
+            "assets/photos/005-kollekciya-terrakotovyh-figurok-vsadnikov-i_02.jpg",
+            "assets/photos/005-kollekciya-terrakotovyh-figurok-vsadnikov-i_03.jpg",
+            "assets/photos/005-kollekciya-terrakotovyh-figurok-vsadnikov-i_04.jpg",
+            "assets/photos/005-kollekciya-terrakotovyh-figurok-vsadnikov-i_05.jpg",
+            "assets/photos/005-kollekciya-terrakotovyh-figurok-vsadnikov-i_06.jpg",
+            "assets/photos/005-kollekciya-terrakotovyh-figurok-vsadnikov-i_07.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/005-kollekciya-terrakotovyh-figurok-vsadnikov-i_01.jpg",
+            "assets/thumbs/005-kollekciya-terrakotovyh-figurok-vsadnikov-i_02.jpg",
+            "assets/thumbs/005-kollekciya-terrakotovyh-figurok-vsadnikov-i_03.jpg",
+            "assets/thumbs/005-kollekciya-terrakotovyh-figurok-vsadnikov-i_04.jpg",
+            "assets/thumbs/005-kollekciya-terrakotovyh-figurok-vsadnikov-i_05.jpg",
+            "assets/thumbs/005-kollekciya-terrakotovyh-figurok-vsadnikov-i_06.jpg",
+            "assets/thumbs/005-kollekciya-terrakotovyh-figurok-vsadnikov-i_07.jpg"
+          ],
+          "model": "assets/models/005-kollekciya-terrakotovyh-figurok-vsadnikov-i.glb"
+        },
+        {
+          "id": "013-starinnyy-bronzovyy-kolokolchik",
+          "number": 13,
+          "title": "Старинный бронзовый колокольчик",
+          "categoryId": "archaeology",
+          "reason": "Цельная форма, подвес и выразительная патина дают небольшому предмету ясный образ и интересную звуковую историю.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "metal/bronze_pendant_034",
+          "photos": [
+            "assets/photos/013-starinnyy-bronzovyy-kolokolchik_01.jpg",
+            "assets/photos/013-starinnyy-bronzovyy-kolokolchik_02.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/013-starinnyy-bronzovyy-kolokolchik_01.jpg",
+            "assets/thumbs/013-starinnyy-bronzovyy-kolokolchik_02.jpg"
+          ],
+          "model": "assets/models/013-starinnyy-bronzovyy-kolokolchik.glb"
+        },
+        {
+          "id": "017-terrakotovaya-figura-voina",
+          "number": 17,
+          "title": "Терракотовая фигура воина",
+          "categoryId": "archaeology",
+          "reason": "Антропоморфный образ с выразительным головным убором дает редкую прямую встречу с человеком древней эпохи.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "ceramics/ceramic_fragment_010",
+          "photos": [
+            "assets/photos/017-terrakotovaya-figura-voina_01.jpg",
+            "assets/photos/017-terrakotovaya-figura-voina_02.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/017-terrakotovaya-figura-voina_01.jpg",
+            "assets/thumbs/017-terrakotovaya-figura-voina_02.jpg"
+          ],
+          "model": "assets/models/017-terrakotovaya-figura-voina.glb"
+        },
+        {
+          "id": "020-kompleks-arheologicheskih-kubkov-i-sosudov",
+          "number": 20,
+          "title": "Комплекс археологических кубков и сосудов",
+          "categoryId": "archaeology",
+          "reason": "Группа сосудов необычных пропорций хорошо работает как единый археологический ансамбль.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "ceramics/ceramic_fragment_005",
+          "photos": [
+            "assets/photos/020-kompleks-arheologicheskih-kubkov-i-sosudov_01.jpg",
+            "assets/photos/020-kompleks-arheologicheskih-kubkov-i-sosudov_02.jpg",
+            "assets/photos/020-kompleks-arheologicheskih-kubkov-i-sosudov_03.jpg",
+            "assets/photos/020-kompleks-arheologicheskih-kubkov-i-sosudov_04.jpg",
+            "assets/photos/020-kompleks-arheologicheskih-kubkov-i-sosudov_05.jpg",
+            "assets/photos/020-kompleks-arheologicheskih-kubkov-i-sosudov_06.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/020-kompleks-arheologicheskih-kubkov-i-sosudov_01.jpg",
+            "assets/thumbs/020-kompleks-arheologicheskih-kubkov-i-sosudov_02.jpg",
+            "assets/thumbs/020-kompleks-arheologicheskih-kubkov-i-sosudov_03.jpg",
+            "assets/thumbs/020-kompleks-arheologicheskih-kubkov-i-sosudov_04.jpg",
+            "assets/thumbs/020-kompleks-arheologicheskih-kubkov-i-sosudov_05.jpg",
+            "assets/thumbs/020-kompleks-arheologicheskih-kubkov-i-sosudov_06.jpg"
+          ],
+          "model": "assets/models/020-kompleks-arheologicheskih-kubkov-i-sosudov.glb"
+        },
+        {
+          "id": "024-bronzovaya-fibula-v-forme-pticy",
+          "number": 24,
+          "title": "Бронзовая фибула в форме птицы",
+          "categoryId": "archaeology",
+          "reason": "Небольшой предмет выделяется узнаваемым зооморфным силуэтом и дает хороший крупный план древнего декоративного искусства.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "metal/bronze_brooch_008",
+          "photos": [
+            "assets/photos/024-bronzovaya-fibula-v-forme-pticy_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/024-bronzovaya-fibula-v-forme-pticy_01.jpg"
+          ],
+          "model": "assets/models/024-bronzovaya-fibula-v-forme-pticy.glb"
+        },
+        {
+          "id": "025-reznaya-pechat-so-znakom",
+          "number": 25,
+          "title": "Резная печать со знаком",
+          "categoryId": "archaeology",
+          "reason": "Четкий геометрический знак превращает маленькую находку в предмет с сильной загадкой и исследовательским потенциалом.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "stone/stone_pendant_001",
+          "photos": [
+            "assets/photos/025-reznaya-pechat-so-znakom_01.jpg",
+            "assets/photos/025-reznaya-pechat-so-znakom_02.jpg",
+            "assets/photos/025-reznaya-pechat-so-znakom_03.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/025-reznaya-pechat-so-znakom_01.jpg",
+            "assets/thumbs/025-reznaya-pechat-so-znakom_02.jpg",
+            "assets/thumbs/025-reznaya-pechat-so-znakom_03.jpg"
+          ],
+          "model": "assets/models/025-reznaya-pechat-so-znakom.glb"
+        },
+        {
+          "id": "029-kremnevyy-nakonechnik",
+          "number": 29,
+          "title": "Кремневый наконечник",
+          "categoryId": "archaeology",
+          "reason": "Выразительная техника скола и чистая форма позволяют наглядно рассказать о самых ранних технологиях изготовления оружия.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "metal/bronze_pendant_013",
+          "photos": [
+            "assets/photos/029-kremnevyy-nakonechnik_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/029-kremnevyy-nakonechnik_01.jpg"
+          ],
+          "model": "assets/models/029-kremnevyy-nakonechnik.glb"
+        },
+        {
+          "id": "033-arheologicheskiy-sosud-na-podstavkah",
+          "number": 33,
+          "title": "Археологический сосуд на подставках",
+          "categoryId": "archaeology",
+          "reason": "Необычная установка на отдельных опорах дает предмету загадочный ритуальный характер.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "ceramics/ceramic_vessel_with_lid_003",
+          "photos": [
+            "assets/photos/033-arheologicheskiy-sosud-na-podstavkah_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/033-arheologicheskiy-sosud-na-podstavkah_01.jpg"
+          ],
+          "model": "assets/models/033-arheologicheskiy-sosud-na-podstavkah.glb"
+        },
+        {
+          "id": "035-nabor-bronzovyh-blyashek-i-nakladok",
+          "number": 35,
+          "title": "Набор бронзовых бляшек и накладок",
+          "categoryId": "archaeology",
+          "reason": "Серия предметов позволяет показать разнообразие древнего орнамента и типологии в одном экспозиционном блоке.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "metal/bronze_brooch_010",
+          "photos": [
+            "assets/photos/035-nabor-bronzovyh-blyashek-i-nakladok_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/035-nabor-bronzovyh-blyashek-i-nakladok_01.jpg"
+          ],
+          "model": "assets/models/035-nabor-bronzovyh-blyashek-i-nakladok.glb"
+        },
+        {
+          "id": "036-bronzovaya-kolesovidnaya-podveska",
+          "number": 36,
+          "title": "Бронзовая колесовидная подвеска",
+          "categoryId": "archaeology",
+          "reason": "Геометрическая форма и хорошая сохранность делают маленький предмет графически сильным и запоминающимся.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "metal/bronze_brooch_003",
+          "photos": [
+            "assets/photos/036-bronzovaya-kolesovidnaya-podveska_01.jpg",
+            "assets/photos/036-bronzovaya-kolesovidnaya-podveska_02.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/036-bronzovaya-kolesovidnaya-podveska_01.jpg",
+            "assets/thumbs/036-bronzovaya-kolesovidnaya-podveska_02.jpg"
+          ],
+          "model": "assets/models/036-bronzovaya-kolesovidnaya-podveska.glb"
+        },
+        {
+          "id": "037-zoomorfnyy-bronzovyy-amulet",
+          "number": 37,
+          "title": "Зооморфный бронзовый амулет",
+          "categoryId": "archaeology",
+          "reason": "Миниатюрная фигура обладает редким узнаваемым характером и хорошо работает в макросъемке.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "metal/bronze_pendant_005",
+          "photos": [
+            "assets/photos/037-zoomorfnyy-bronzovyy-amulet_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/037-zoomorfnyy-bronzovyy-amulet_01.jpg"
+          ],
+          "model": "assets/models/037-zoomorfnyy-bronzovyy-amulet.glb"
+        },
+        {
+          "id": "045-arheologicheskaya-chashka-s-ruchkoy",
+          "number": 45,
+          "title": "Археологическая чашка с ручкой",
+          "categoryId": "archaeology",
+          "reason": "Хорошо сохранившаяся ручка и орнамент по венчику делают небольшой сосуд особенно цельным.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "ceramics/ceramic_bowl_with_handle_001",
+          "photos": [
+            "assets/photos/045-arheologicheskaya-chashka-s-ruchkoy_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/045-arheologicheskaya-chashka-s-ruchkoy_01.jpg"
+          ],
+          "model": "assets/models/045-arheologicheskaya-chashka-s-ruchkoy.glb"
+        },
+        {
+          "id": "058-busy-iz-kamnya-i-serdolika",
+          "number": 58,
+          "title": "Бусы из камня и сердолика",
+          "categoryId": "archaeology",
+          "reason": "Разные камни и теплые красные оттенки делают небольшой археологический комплект визуально насыщенным.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "stone/stone_pendant_008",
+          "photos": [
+            "assets/photos/058-busy-iz-kamnya-i-serdolika_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/058-busy-iz-kamnya-i-serdolika_01.jpg"
+          ],
+          "model": null
+        },
+        {
+          "id": "059-shipastaya-arheologicheskaya-nakladka",
+          "number": 59,
+          "title": "Шипастая археологическая накладка",
+          "categoryId": "archaeology",
+          "reason": "Необычная треугольная форма и рельеф из выступов вызывают вопросы о назначении и хорошо удерживают внимание.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "metal/bronze_brooch_001",
+          "photos": [
+            "assets/photos/059-shipastaya-arheologicheskaya-nakladka_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/059-shipastaya-arheologicheskaya-nakladka_01.jpg"
+          ],
+          "model": "assets/models/059-shipastaya-arheologicheskaya-nakladka.glb"
+        }
+      ]
+    },
+    {
+      "id": "ethnography",
+      "title": "Этнография и быт",
+      "icon": "home",
+      "exhibits": [
+        {
+          "id": "026-metallicheskiy-kuvshin-kumgan",
+          "number": 26,
+          "title": "Металлический кувшин-кумган",
+          "categoryId": "ethnography",
+          "reason": "Пластичный силуэт, высокая ножка и длинный носик делают бытовой предмет почти скульптурным.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "ceramics/ceramic_vessel_with_lid_027",
+          "photos": [
+            "assets/photos/026-metallicheskiy-kuvshin-kumgan_01.jpg",
+            "assets/photos/026-metallicheskiy-kuvshin-kumgan_02.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/026-metallicheskiy-kuvshin-kumgan_01.jpg",
+            "assets/thumbs/026-metallicheskiy-kuvshin-kumgan_02.jpg"
+          ],
+          "model": "assets/models/026-metallicheskiy-kuvshin-kumgan.glb"
+        },
+        {
+          "id": "043-raspisnaya-dvuruchnaya-amfora",
+          "number": 43,
+          "title": "Расписная двуручная амфора",
+          "categoryId": "ethnography",
+          "reason": "Крупная форма, симметричные ручки и светлый геометрический орнамент делают сосуд одним из лучших бытовых объектов.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "ceramics/ceramic_vessel_with_lid_030",
+          "photos": [
+            "assets/photos/043-raspisnaya-dvuruchnaya-amfora_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/043-raspisnaya-dvuruchnaya-amfora_01.jpg"
+          ],
+          "model": "assets/models/043-raspisnaya-dvuruchnaya-amfora.glb"
+        },
+        {
+          "id": "044-metallicheskiy-kotel",
+          "number": 44,
+          "title": "Металлический котел",
+          "categoryId": "ethnography",
+          "reason": "Архаичная форма и выразительная патина дают сильный образ традиционного домашнего быта.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "ceramics/ceramic_vessel_with_lid_024",
+          "photos": [
+            "assets/photos/044-metallicheskiy-kotel_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/044-metallicheskiy-kotel_01.jpg"
+          ],
+          "model": "assets/models/044-metallicheskiy-kotel.glb"
+        },
+        {
+          "id": "046-starinnye-utyugi-i-pryalka",
+          "number": 46,
+          "title": "Старинные утюги и прялка",
+          "categoryId": "ethnography",
+          "reason": "Понятные бытовые предметы создают живую историю повседневной работы и хорошо дополняют парадные экспонаты.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "ceramics/ceramic_vessel_with_lid_034",
+          "photos": [
+            "assets/photos/046-starinnye-utyugi-i-pryalka_01.jpg",
+            "assets/photos/046-starinnye-utyugi-i-pryalka_02.jpg",
+            "assets/photos/046-starinnye-utyugi-i-pryalka_03.jpg",
+            "assets/photos/046-starinnye-utyugi-i-pryalka_04.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/046-starinnye-utyugi-i-pryalka_01.jpg",
+            "assets/thumbs/046-starinnye-utyugi-i-pryalka_02.jpg",
+            "assets/thumbs/046-starinnye-utyugi-i-pryalka_03.jpg",
+            "assets/thumbs/046-starinnye-utyugi-i-pryalka_04.jpg"
+          ],
+          "model": "assets/models/046-starinnye-utyugi-i-pryalka.glb"
+        },
+        {
+          "id": "047-tradicionnaya-garmon",
+          "number": 47,
+          "title": "Традиционная гармонь",
+          "categoryId": "ethnography",
+          "reason": "Музыкальный инструмент добавляет в коллекцию звук, праздник и социальную историю, которых не дают оружие и археология.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "metal/chainmail_fragment_002",
+          "photos": [
+            "assets/photos/047-tradicionnaya-garmon_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/047-tradicionnaya-garmon_01.jpg"
+          ],
+          "model": "assets/models/047-tradicionnaya-garmon.glb"
+        },
+        {
+          "id": "048-reznaya-derevyannaya-shkatulka",
+          "number": 48,
+          "title": "Резная деревянная шкатулка",
+          "categoryId": "ethnography",
+          "reason": "Компактный предмет с геометрической резьбой хорошо представляет домашнее декоративное ремесло.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "wood/carved_wooden_box_001",
+          "photos": [
+            "assets/photos/048-reznaya-derevyannaya-shkatulka_01.jpg",
+            "assets/photos/048-reznaya-derevyannaya-shkatulka_02.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/048-reznaya-derevyannaya-shkatulka_01.jpg",
+            "assets/thumbs/048-reznaya-derevyannaya-shkatulka_02.jpg"
+          ],
+          "model": "assets/models/048-reznaya-derevyannaya-shkatulka.glb"
+        }
+      ]
+    },
+    {
+      "id": "modern-history",
+      "title": "Новейшая история",
+      "icon": "medal",
+      "exhibits": [
+        {
+          "id": "049-voennyy-orden",
+          "number": 49,
+          "title": "Военный орден",
+          "categoryId": "modern-history",
+          "reason": "Персональный наградной предмет дает прямую эмоциональную связь с биографией участника войны.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "documents/archival_documents_001",
+          "photos": [
+            "assets/photos/049-voennyy-orden_01.jpg",
+            "assets/photos/049-voennyy-orden_02.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/049-voennyy-orden_01.jpg",
+            "assets/thumbs/049-voennyy-orden_02.jpg"
+          ],
+          "model": "assets/models/049-voennyy-orden.glb"
+        },
+        {
+          "id": "050-forma-boyca-krasnoy-armii",
+          "number": 50,
+          "title": "Форма бойца Красной армии",
+          "categoryId": "modern-history",
+          "reason": "Полнофигурная реконструкция делает военную историю наглядной и легко считываемой посетителем.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "documents/display_case_001",
+          "photos": [
+            "assets/photos/050-forma-boyca-krasnoy-armii_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/050-forma-boyca-krasnoy-armii_01.jpg"
+          ],
+          "model": "assets/models/050-forma-boyca-krasnoy-armii.glb"
+        },
+        {
+          "id": "051-frontovye-pisma-i-dokumenty",
+          "number": 51,
+          "title": "Фронтовые письма и документы",
+          "categoryId": "modern-history",
+          "reason": "Документы раскрывают личное измерение войны и дают материал для содержательного музейного рассказа.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "documents/museum_wall_display_005",
+          "photos": [
+            "assets/photos/051-frontovye-pisma-i-dokumenty_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/051-frontovye-pisma-i-dokumenty_01.jpg"
+          ],
+          "model": null
+        },
+        {
+          "id": "052-kompleks-nagrad-i-udostovereniy",
+          "number": 52,
+          "title": "Комплекс наград и удостоверений",
+          "categoryId": "modern-history",
+          "reason": "Связка наград с документами позволяет показывать не только знак отличия, но и подтвержденную историю службы.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "documents/museum_wall_display_006",
+          "photos": [
+            "assets/photos/052-kompleks-nagrad-i-udostovereniy_01.jpg",
+            "assets/photos/052-kompleks-nagrad-i-udostovereniy_02.jpg",
+            "assets/photos/052-kompleks-nagrad-i-udostovereniy_03.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/052-kompleks-nagrad-i-udostovereniy_01.jpg",
+            "assets/thumbs/052-kompleks-nagrad-i-udostovereniy_02.jpg",
+            "assets/thumbs/052-kompleks-nagrad-i-udostovereniy_03.jpg"
+          ],
+          "model": null
+        }
+      ]
+    },
+    {
+      "id": "painting",
+      "title": "Живопись",
+      "icon": "palette",
+      "exhibits": [
+        {
+          "id": "008-istoricheskaya-mnogofigurnaya-kompoziciya",
+          "number": 8,
+          "title": "Историческая многофигурная композиция",
+          "categoryId": "painting",
+          "reason": "Масштабная сцена с национальными костюмами способна стать смысловым центром художественного раздела.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "paintings/historical_painting_003",
+          "photos": [
+            "assets/photos/008-istoricheskaya-mnogofigurnaya-kompoziciya_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/008-istoricheskaya-mnogofigurnaya-kompoziciya_01.jpg"
+          ],
+          "model": null
+        },
+        {
+          "id": "027-istoricheskaya-scena-v-gornom-aule",
+          "number": 27,
+          "title": "Историческая сцена в горном ауле",
+          "categoryId": "painting",
+          "reason": "Многофигурная композиция соединяет архитектуру, костюм и драматическое действие.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "paintings/historical_painting_004",
+          "photos": [
+            "assets/photos/027-istoricheskaya-scena-v-gornom-aule_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/027-istoricheskaya-scena-v-gornom-aule_01.jpg"
+          ],
+          "model": null
+        },
+        {
+          "id": "034-lesnoy-peyzazh",
+          "number": 34,
+          "title": "Лесной пейзаж",
+          "categoryId": "painting",
+          "reason": "Выразительный ритм деревьев и глубокая осенняя палитра создают один из лучших самостоятельных живописных образов коллекции.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "paintings/landscape_painting_001",
+          "photos": [
+            "assets/photos/034-lesnoy-peyzazh_01.jpg",
+            "assets/photos/034-lesnoy-peyzazh_02.jpg",
+            "assets/photos/034-lesnoy-peyzazh_03.jpg",
+            "assets/photos/034-lesnoy-peyzazh_04.jpg",
+            "assets/photos/034-lesnoy-peyzazh_05.jpg",
+            "assets/photos/034-lesnoy-peyzazh_06.jpg",
+            "assets/photos/034-lesnoy-peyzazh_07.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/034-lesnoy-peyzazh_01.jpg",
+            "assets/thumbs/034-lesnoy-peyzazh_02.jpg",
+            "assets/thumbs/034-lesnoy-peyzazh_03.jpg",
+            "assets/thumbs/034-lesnoy-peyzazh_04.jpg",
+            "assets/thumbs/034-lesnoy-peyzazh_05.jpg",
+            "assets/thumbs/034-lesnoy-peyzazh_06.jpg",
+            "assets/thumbs/034-lesnoy-peyzazh_07.jpg"
+          ],
+          "model": null
+        },
+        {
+          "id": "053-klassicheskiy-peyzazh",
+          "number": 53,
+          "title": "Классический пейзаж",
+          "categoryId": "painting",
+          "reason": "Теплая музейная живопись с глубокой перспективой расширяет художественный диапазон подборки.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "paintings/landscape_painting_005",
+          "photos": [
+            "assets/photos/053-klassicheskiy-peyzazh_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/053-klassicheskiy-peyzazh_01.jpg"
+          ],
+          "model": null
+        },
+        {
+          "id": "054-gornyy-peyzazh",
+          "number": 54,
+          "title": "Горный пейзаж",
+          "categoryId": "painting",
+          "reason": "Лаконичный образ гор и вертикали деревьев хорошо связывает художественный раздел с ландшафтом региона.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "paintings/landscape_painting_006",
+          "photos": [
+            "assets/photos/054-gornyy-peyzazh_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/054-gornyy-peyzazh_01.jpg"
+          ],
+          "model": null
+        },
+        {
+          "id": "055-portret-materi-s-detmi",
+          "number": 55,
+          "title": "Портрет матери с детьми",
+          "categoryId": "painting",
+          "reason": "Теплая многофигурная сцена добавляет в подборку повседневную человеческую историю и сильный эмоциональный центр.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "paintings/portrait_painting_001",
+          "photos": [
+            "assets/photos/055-portret-materi-s-detmi_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/055-portret-materi-s-detmi_01.jpg"
+          ],
+          "model": null
+        },
+        {
+          "id": "056-portret-pozhilogo-gorca",
+          "number": 56,
+          "title": "Портрет пожилого горца",
+          "categoryId": "painting",
+          "reason": "Выразительный характер модели и плотная живописная манера дают один из самых убедительных портретов коллекции.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "paintings/portrait_painting_002",
+          "photos": [
+            "assets/photos/056-portret-pozhilogo-gorca_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/056-portret-pozhilogo-gorca_01.jpg"
+          ],
+          "model": null
+        },
+        {
+          "id": "057-natyurmort-s-fruktami",
+          "number": 57,
+          "title": "Натюрморт с фруктами",
+          "categoryId": "painting",
+          "reason": "Богатая круглая композиция и старомастерская манера добавляют художественному разделу жанровое разнообразие.",
+          "note": "название дано по визуальному анализу фотографий. Точную датировку, материал, происхождение и инвентарный номер следует сверить с музейной учетной документацией.",
+          "sources": "paintings/still_life_painting_001",
+          "photos": [
+            "assets/photos/057-natyurmort-s-fruktami_01.jpg"
+          ],
+          "thumbs": [
+            "assets/thumbs/057-natyurmort-s-fruktami_01.jpg"
+          ],
+          "model": null
+        }
+      ]
+    }
+  ]
+}
