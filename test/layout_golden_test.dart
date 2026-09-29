@@ -6,7 +6,6 @@ import 'dart:io';
 import 'package:chrexpo/core/theme/app_theme.dart';
 import 'package:chrexpo/data/catalog.dart';
 import 'package:chrexpo/state/gallery_state.dart';
-import 'package:chrexpo/state/theme_controller.dart';
 import 'package:chrexpo/ui/home_screen.dart';
 import 'package:chrexpo/ui/widgets/model_stage.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +27,7 @@ void main() {
   });
 
   setUpAll(() async {
-    for (final family in {'Inter', 'Playfair'}) {
+    for (final family in {'Literata', 'Manrope'}) {
       final loader = FontLoader(family);
       for (final path in _fontFiles(family)) {
         loader.addFont(rootBundle.load(path));
@@ -44,7 +43,6 @@ void main() {
   Future<GalleryState> pumpApp(
     WidgetTester tester, {
     required Size size,
-    ThemeMode mode = ThemeMode.dark,
   }) async {
     tester.view
       ..physicalSize = size
@@ -60,16 +58,11 @@ void main() {
     });
 
     await tester.pumpWidget(
-      MultiProvider(
-        providers: [
-          ChangeNotifierProvider<ThemeController>(create: (_) => ThemeController()),
-          ChangeNotifierProvider<GalleryState>.value(value: state),
-        ],
+      ChangeNotifierProvider<GalleryState>.value(
+        value: state,
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          themeMode: mode,
-          theme: AppTheme.light(),
-          darkTheme: AppTheme.dark(),
+          theme: AppTheme.dark(),
           home: const HomeScreen(),
         ),
       ),
@@ -96,17 +89,13 @@ void main() {
     );
   });
 
-  testWidgets('светлая тема', (tester) async {
-    final state = await pumpApp(
-      tester,
-      size: const Size(1440, 900),
-      mode: ThemeMode.light,
-    );
+  testWidgets('телефон: компактная раскладка', (tester) async {
+    final state = await pumpApp(tester, size: const Size(390, 844));
     state.selectExhibit(state.categories.first.exhibits[3]);
     await settle(tester);
     await expectLater(
       find.byType(HomeScreen),
-      matchesGoldenFile('goldens/exhibit_light.png'),
+      matchesGoldenFile('goldens/exhibit_phone.png'),
     );
   });
 
@@ -123,12 +112,12 @@ void main() {
 
 List<String> _fontFiles(String family) {
   final dir = Directory('assets/fonts');
-  final prefix = family == 'Inter' ? 'Inter-' : 'PlayfairDisplay-';
+  final prefix = '$family-';
   return dir
       .listSync()
       .whereType<File>()
       .map((f) => f.path)
-      .where((p) => p.split('/').last.startsWith(prefix))
+      .where((p) => p.endsWith('.ttf') && p.split('/').last.startsWith(prefix))
       .toList()
     ..sort();
 }

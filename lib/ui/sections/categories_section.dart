@@ -52,23 +52,14 @@ class _CategoriesSectionState extends State<CategoriesSection> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Padding(
-          padding: EdgeInsets.fromLTRB(padding, 6, padding, 10),
+          padding: EdgeInsets.fromLTRB(padding, AppSpacing.md, padding, AppSpacing.xs),
           child: SectionLabel(
             'Категории',
-            trailing: Align(
-              alignment: Alignment.centerRight,
-              child: Text(
-                plural(categories.length, 'раздел', 'раздела', 'разделов'),
-                style: context.text.labelSmall?.copyWith(
-                  color: context.tones.muted,
-                  letterSpacing: 0.3,
-                ),
-              ),
-            ),
+            detail: plural(categories.length, 'раздел', 'раздела', 'разделов'),
           ),
         ),
         SizedBox(
-          height: compact ? 62 : 70,
+          height: 64,
           // Разделов немного, поэтому строим их сразу все: ленивый список не
           // создаёт элементы для плашек за краем экрана, и до них нельзя
           // доскроллить программно.
@@ -86,7 +77,7 @@ class _CategoriesSectionState extends State<CategoriesSection> {
                     onTap: () =>
                         context.read<GalleryState>().selectCategory(category.id),
                   ),
-                  if (category != categories.last) const SizedBox(width: 10),
+                  if (category != categories.last) const SizedBox(width: AppSpacing.xs),
                 ],
               ],
             ),
@@ -113,73 +104,59 @@ class _CategoryChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tones = context.tones;
-    final primary = context.colors.primary;
-
     return Hoverable(
       onTap: onTap,
       builder: (context, hovered) {
+        // Латунь — только у активного раздела.
         final border = selected
-            ? primary.withValues(alpha: 0.55)
+            ? AppColors.brass
             : hovered
-            ? tones.muted.withValues(alpha: 0.45)
-            : tones.hairline;
+            ? AppColors.outline
+            : AppColors.divider;
         return AnimatedContainer(
           duration: kFast,
           curve: Curves.easeOut,
-          padding: EdgeInsets.symmetric(horizontal: compact ? 12 : 15, vertical: 10),
+          padding: EdgeInsets.symmetric(
+            horizontal: compact ? AppSpacing.sm : AppSpacing.md,
+            vertical: AppSpacing.sm,
+          ),
           decoration: BoxDecoration(
-            color: selected
-                ? tones.accentSoft
-                : hovered
-                ? tones.cardHover
-                : tones.card,
-            borderRadius: BorderRadius.circular(kRadius - 2),
-            border: Border.all(color: border, width: selected ? 1.4 : 1),
+            color: selected || hovered ? AppColors.raised : AppColors.panel,
+            borderRadius: BorderRadius.circular(AppRadii.card),
+            border: Border.all(color: border),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              AnimatedContainer(
-                duration: kFast,
-                width: compact ? 30 : 34,
-                height: compact ? 30 : 34,
-                decoration: BoxDecoration(
-                  color: selected
-                      ? primary.withValues(alpha: 0.18)
-                      : tones.hairline.withValues(alpha: 0.7),
-                  borderRadius: BorderRadius.circular(9),
-                ),
-                child: Icon(
-                  iconFor(category.icon),
-                  size: compact ? 16 : 18,
-                  color: selected ? primary : tones.muted,
-                ),
+              Icon(
+                iconFor(category.icon),
+                size: 20,
+                color: selected ? AppColors.brass : AppColors.textSecondary,
               ),
-              const SizedBox(width: 11),
+              const SizedBox(width: AppSpacing.sm),
               Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     category.title,
-                    style: context.text.titleSmall?.copyWith(
-                      color: selected ? context.colors.onSurface : context.colors.onSurfaceVariant,
-                      fontSize: compact ? 12.5 : 13.5,
-                    ),
+                    style: (compact ? context.text.labelMedium : context.text.titleSmall)
+                        ?.copyWith(
+                          color: selected
+                              ? AppColors.textPrimary
+                              : AppColors.textSecondary,
+                          height: 1.3,
+                        ),
                   ),
-                  const SizedBox(height: 2),
                   Text(
-                    '${category.exhibits.length} · ${category.modelCount} 3D',
+                    '${plural(category.exhibits.length, 'экспонат', 'экспоната', 'экспонатов')} · ${category.modelCount} в 3D',
                     style: context.text.labelSmall?.copyWith(
-                      color: tones.muted,
-                      fontSize: 10.5,
-                      letterSpacing: 0.2,
+                      fontWeight: FontWeight.w400,
+                      height: 1.3,
                     ),
                   ),
                 ],
               ),
-              const SizedBox(width: 4),
             ],
           ),
         );

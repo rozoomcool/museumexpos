@@ -21,7 +21,8 @@ class PhotoLightbox extends StatefulWidget {
     return Navigator.of(context).push(
       PageRouteBuilder(
         opaque: false,
-        barrierColor: Colors.black.withValues(alpha: 0.86),
+        // Непрозрачный основной фон: без размытия и «стекла».
+        barrierColor: AppColors.background,
         transitionDuration: kMedium,
         pageBuilder: (_, _, _) => PhotoLightbox(exhibit: exhibit, index: index),
         transitionsBuilder: (_, animation, _, child) => FadeTransition(
@@ -96,7 +97,12 @@ class _PhotoLightboxState extends State<PhotoLightbox> {
                 itemBuilder: (context, i) => InteractiveViewer(
                   maxScale: 5,
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(56, 56, 56, 92),
+                    padding: const EdgeInsets.fromLTRB(
+                      AppSpacing.xxxl + AppSpacing.md,
+                      AppSpacing.xxl + AppSpacing.xl,
+                      AppSpacing.xxxl + AppSpacing.md,
+                      AppSpacing.xxl + AppSpacing.xl,
+                    ),
                     child: Image.asset(
                       photos[i],
                       fit: BoxFit.contain,
@@ -107,49 +113,46 @@ class _PhotoLightboxState extends State<PhotoLightbox> {
               ),
             ),
             Positioned(
-              top: 20,
-              right: 20,
-              child: GlassButton(
+              top: AppSpacing.lg,
+              right: AppSpacing.lg,
+              child: PanelIconButton(
                 icon: Icons.close_rounded,
-                tooltip: 'Закрыть',
-                size: 42,
+                tooltip: 'Закрыть (Esc)',
                 onPressed: () => Navigator.of(context).maybePop(),
               ),
             ),
             Positioned(
-              top: 24,
-              left: 24,
-              right: 80,
+              top: AppSpacing.lg,
+              left: AppSpacing.lg,
+              right: AppSpacing.lg + kTouchTarget + AppSpacing.md,
               child: Text(
                 widget.exhibit.title,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: context.text.titleMedium?.copyWith(color: Colors.white),
+                style: context.text.headlineSmall,
               ),
             ),
             if (photos.length > 1) ...[
               Positioned(
-                left: 16,
+                left: AppSpacing.lg,
                 top: 0,
                 bottom: 0,
                 child: Center(
-                  child: GlassButton(
+                  child: PanelIconButton(
                     icon: Icons.chevron_left_rounded,
                     tooltip: 'Предыдущее фото',
-                    size: 44,
                     onPressed: _current > 0 ? () => _step(-1) : null,
                   ),
                 ),
               ),
               Positioned(
-                right: 16,
+                right: AppSpacing.lg,
                 top: 0,
                 bottom: 0,
                 child: Center(
-                  child: GlassButton(
+                  child: PanelIconButton(
                     icon: Icons.chevron_right_rounded,
                     tooltip: 'Следующее фото',
-                    size: 44,
                     onPressed: _current < photos.length - 1 ? () => _step(1) : null,
                   ),
                 ),
@@ -157,17 +160,21 @@ class _PhotoLightboxState extends State<PhotoLightbox> {
               Positioned(
                 left: 0,
                 right: 0,
-                bottom: 28,
+                bottom: AppSpacing.lg,
                 child: Center(
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: AppSpacing.sm,
+                      vertical: AppSpacing.xs,
+                    ),
                     decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.1),
-                      borderRadius: BorderRadius.circular(999),
+                      color: AppColors.panel,
+                      borderRadius: BorderRadius.circular(AppRadii.button),
+                      border: Border.all(color: AppColors.divider),
                     ),
                     child: Text(
                       '${_current + 1} / ${photos.length}',
-                      style: context.text.labelMedium?.copyWith(color: Colors.white),
+                      style: context.text.labelMedium?.copyWith(color: AppColors.textPrimary),
                     ),
                   ),
                 ),

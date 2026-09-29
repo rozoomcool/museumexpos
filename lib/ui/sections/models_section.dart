@@ -25,8 +25,8 @@ class _ModelsSectionState extends State<ModelsSection> {
   final _scroll = ScrollController();
   String? _lastId;
 
-  static const _itemWidth = 210.0;
-  static const _gap = 10.0;
+  static const _itemWidth = 216.0;
+  static const _gap = AppSpacing.xs;
 
   @override
   void dispose() {
@@ -69,7 +69,7 @@ class _ModelsSectionState extends State<ModelsSection> {
       _lastId = null;
     }
 
-    final height = widget.compact ? 104.0 : 118.0;
+    final height = widget.compact ? 100.0 : 112.0;
 
     return AnimatedSize(
       duration: kMedium,
@@ -81,22 +81,16 @@ class _ModelsSectionState extends State<ModelsSection> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Padding(
-                  padding: EdgeInsets.fromLTRB(widget.padding, 14, widget.padding, 9),
+                  padding: EdgeInsets.fromLTRB(
+                    widget.padding,
+                    AppSpacing.md,
+                    widget.padding,
+                    AppSpacing.xs,
+                  ),
                   child: SectionLabel(
                     'Модели',
-                    trailing: Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
+                    detail:
                         '${state.category?.title ?? ''} · ${plural(items.length, 'экспонат', 'экспоната', 'экспонатов')}',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.right,
-                        style: context.text.labelSmall?.copyWith(
-                          color: context.tones.muted,
-                          letterSpacing: 0.3,
-                        ),
-                      ),
-                    ),
                   ),
                 ),
                 SizedBox(
@@ -108,7 +102,7 @@ class _ModelsSectionState extends State<ModelsSection> {
                       widget.padding,
                       0,
                       widget.padding,
-                      widget.compact ? 12 : 16,
+                      widget.compact ? AppSpacing.sm : AppSpacing.md,
                     ),
                     itemCount: items.length,
                     separatorBuilder: (_, _) => const SizedBox(width: _gap),
@@ -141,42 +135,34 @@ class _ModelTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tones = context.tones;
-    final primary = context.colors.primary;
-
     return Hoverable(
       onTap: onTap,
       builder: (context, hovered) => AnimatedContainer(
         duration: kFast,
         width: width,
         decoration: BoxDecoration(
-          color: selected
-              ? tones.accentSoft
-              : hovered
-              ? tones.cardHover
-              : tones.card,
-          borderRadius: BorderRadius.circular(kRadiusSmall + 2),
+          color: selected || hovered ? AppColors.raised : AppColors.panel,
+          borderRadius: BorderRadius.circular(AppRadii.card),
           border: Border.all(
             color: selected
-                ? primary.withValues(alpha: 0.65)
+                ? AppColors.brass
                 : hovered
-                ? tones.muted.withValues(alpha: 0.45)
-                : tones.hairline,
-            width: selected ? 1.5 : 1,
+                ? AppColors.outline
+                : AppColors.divider,
           ),
         ),
-        padding: const EdgeInsets.all(7),
+        padding: const EdgeInsets.all(AppSpacing.xs),
         child: Row(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(AppRadii.button),
               child: SizedBox(
-                width: 56,
+                width: 64,
                 height: double.infinity,
-                child: ExhibitThumb(exhibit: exhibit, zoom: hovered),
+                child: ExhibitThumb(exhibit: exhibit),
               ),
             ),
-            const SizedBox(width: 10),
+            const SizedBox(width: AppSpacing.sm),
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -187,30 +173,27 @@ class _ModelTile extends StatelessWidget {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: context.text.labelMedium?.copyWith(
-                      color: selected ? context.colors.onSurface : context.colors.onSurfaceVariant,
+                      color: selected ? AppColors.textPrimary : AppColors.textSecondary,
                       height: 1.3,
                     ),
                   ),
-                  const SizedBox(height: 5),
+                  const SizedBox(height: AppSpacing.xxs),
                   Row(
                     children: [
-                      Text(
-                        '№ ${exhibit.number}',
-                        style: context.text.labelSmall?.copyWith(
-                          color: tones.muted,
-                          fontSize: 10,
-                        ),
-                      ),
+                      Text('№ ${exhibit.number}', style: context.text.labelSmall),
                       if (exhibit.hasModel) ...[
-                        const SizedBox(width: 6),
-                        Icon(Icons.view_in_ar_outlined, size: 11, color: primary),
+                        const SizedBox(width: AppSpacing.xs),
+                        const Icon(
+                          Icons.view_in_ar_outlined,
+                          size: 14,
+                          color: AppColors.textSecondary,
+                        ),
                       ],
                     ],
                   ),
                 ],
               ),
             ),
-            const SizedBox(width: 4),
           ],
         ),
       ),

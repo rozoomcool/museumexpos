@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/catalog.dart';
 import '../../state/gallery_state.dart';
-import '../home_screen.dart';
+import '../home_screen.dart' show kSplitBreakpoint;
 import '../widgets/common.dart';
 import '../widgets/exhibit_card.dart';
 import '../widgets/exhibit_details.dart';
@@ -31,26 +31,14 @@ class ViewerSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Padding(
-          padding: EdgeInsets.fromLTRB(padding, 16, padding, 10),
+          padding: EdgeInsets.fromLTRB(padding, AppSpacing.md, padding, AppSpacing.xs),
           child: SectionLabel(
             'Просмотр',
-            trailing: Align(
-              alignment: Alignment.centerRight,
-              child: Text(
-                state.isSearching
-                    ? 'Найдено: ${plural(items.length, 'экспонат', 'экспоната', 'экспонатов')}'
-                    : exhibit != null
-                    ? 'Экспонат № ${exhibit.number}'
-                    : '${state.category?.title ?? ''} · ${plural(items.length, 'экспонат', 'экспоната', 'экспонатов')}',
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.right,
-                style: context.text.labelSmall?.copyWith(
-                  color: context.tones.muted,
-                  letterSpacing: 0.3,
-                ),
-              ),
-            ),
+            detail: state.isSearching
+                ? 'Найдено: ${plural(items.length, 'экспонат', 'экспоната', 'экспонатов')}'
+                : exhibit != null
+                ? 'Экспонат № ${exhibit.number}'
+                : '${state.category?.title ?? ''} · ${plural(items.length, 'экспонат', 'экспоната', 'экспонатов')}',
           ),
         ),
         Expanded(
@@ -99,15 +87,16 @@ class _ExhibitLayout extends StatelessWidget {
         // Узкий экран: сцена сверху, описание под ней — единым скроллом.
         if (constraints.maxWidth < kSplitBreakpoint) {
           return SectionSurface(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(kRadius),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    SizedBox(height: 280, child: ModelStage(exhibit: exhibit)),
-                    details,
-                  ],
-                ),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: compact ? 240 : 320,
+                    child: ModelStage(exhibit: exhibit, framed: false),
+                  ),
+                  const Divider(),
+                  details,
+                ],
               ),
             ),
           );
@@ -137,7 +126,7 @@ class _ExhibitLayout extends StatelessWidget {
 class _Divider extends StatefulWidget {
   const _Divider({required this.onDrag, required this.onReset});
 
-  static const width = 18.0;
+  static const width = AppSpacing.md;
 
   final ValueChanged<double> onDrag;
   final VoidCallback onReset;
@@ -166,13 +155,11 @@ class _DividerState extends State<_Divider> {
             child: Center(
               child: AnimatedContainer(
                 duration: kFast,
-                width: _active ? 4 : 2,
-                height: _active ? 64 : 36,
+                width: 2,
+                height: _active ? 64 : 32,
                 decoration: BoxDecoration(
-                  color: _active
-                      ? context.colors.primary.withValues(alpha: 0.8)
-                      : context.tones.hairline,
-                  borderRadius: BorderRadius.circular(2),
+                  color: _active ? AppColors.brassHover : AppColors.outline,
+                  borderRadius: BorderRadius.circular(1),
                 ),
               ),
             ),
@@ -207,12 +194,12 @@ class _CatalogGrid extends StatelessWidget {
             .floor()
             .clamp(1, 6);
         return GridView.builder(
-          padding: const EdgeInsets.only(bottom: 6),
+          padding: const EdgeInsets.only(bottom: AppSpacing.xs),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: columns,
-            mainAxisSpacing: 14,
-            crossAxisSpacing: 14,
-            childAspectRatio: compact ? 0.78 : 0.84,
+            mainAxisSpacing: AppSpacing.md,
+            crossAxisSpacing: AppSpacing.md,
+            childAspectRatio: compact ? 0.74 : 0.8,
           ),
           itemCount: items.length,
           itemBuilder: (context, i) => ExhibitCard(
@@ -237,15 +224,15 @@ class _EmptyState extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.search_off_rounded, size: 30, color: context.tones.muted),
-            const SizedBox(height: 14),
+            const Icon(Icons.search_off_rounded, size: 32, color: AppColors.textSecondary),
+            const SizedBox(height: AppSpacing.md),
             Text(
               query == null ? 'В разделе пока пусто' : 'Ничего не найдено',
-              style: context.text.titleMedium,
+              style: context.text.headlineSmall,
             ),
             if (query != null) ...[
-              const SizedBox(height: 6),
-              Text('По запросу «$query» совпадений нет', style: context.text.bodySmall),
+              const SizedBox(height: AppSpacing.xs),
+              Text('По запросу «$query» совпадений нет', style: context.text.bodyMedium?.copyWith(color: AppColors.textSecondary)),
             ],
           ],
         ),

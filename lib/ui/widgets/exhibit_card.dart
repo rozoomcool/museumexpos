@@ -13,29 +13,15 @@ class ExhibitCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tones = context.tones;
-
     return Hoverable(
       onTap: onTap,
       builder: (context, hovered) => AnimatedContainer(
         duration: kFast,
         curve: Curves.easeOut,
-        transform: Matrix4.translationValues(0, hovered ? -3 : 0, 0),
         decoration: BoxDecoration(
-          color: hovered ? tones.cardHover : tones.card,
-          borderRadius: BorderRadius.circular(kRadius),
-          border: Border.all(
-            color: hovered ? tones.muted.withValues(alpha: 0.45) : tones.hairline,
-          ),
-          boxShadow: hovered
-              ? [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.22),
-                    blurRadius: 22,
-                    offset: const Offset(0, 10),
-                  ),
-                ]
-              : null,
+          color: hovered ? AppColors.raised : AppColors.panel,
+          borderRadius: BorderRadius.circular(AppRadii.card),
+          border: Border.all(color: hovered ? AppColors.outline : AppColors.divider),
         ),
         clipBehavior: Clip.antiAlias,
         child: Column(
@@ -45,28 +31,24 @@ class ExhibitCard extends StatelessWidget {
               child: Stack(
                 fit: StackFit.expand,
                 children: [
-                  ExhibitThumb(exhibit: exhibit, zoom: hovered),
+                  ExhibitThumb(exhibit: exhibit),
                   Positioned(
-                    left: 10,
-                    top: 10,
-                    child: Tag(label: '№ ${exhibit.number}', compact: true),
+                    left: AppSpacing.xs,
+                    top: AppSpacing.xs,
+                    child: Tag(label: '№ ${exhibit.number}'),
                   ),
                   if (exhibit.hasModel)
-                    Positioned(
-                      right: 10,
-                      top: 10,
-                      child: Tag(
-                        label: '3D',
-                        icon: Icons.view_in_ar_outlined,
-                        accent: true,
-                        compact: true,
-                      ),
+                    const Positioned(
+                      right: AppSpacing.xs,
+                      top: AppSpacing.xs,
+                      child: Tag(label: '3D', icon: Icons.view_in_ar_outlined),
                     ),
                 ],
               ),
             ),
+            const Divider(),
             Padding(
-              padding: const EdgeInsets.fromLTRB(14, 12, 14, 14),
+              padding: const EdgeInsets.all(AppSpacing.md),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
@@ -75,14 +57,14 @@ class ExhibitCard extends StatelessWidget {
                     exhibit.title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: context.text.titleMedium?.copyWith(height: 1.3),
+                    style: context.text.titleSmall,
                   ),
-                  const SizedBox(height: 6),
+                  const SizedBox(height: AppSpacing.xxs),
                   Text(
                     exhibit.reason,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: context.text.bodySmall?.copyWith(fontSize: 12.2, height: 1.45),
+                    style: context.text.bodySmall,
                   ),
                 ],
               ),
@@ -94,41 +76,36 @@ class ExhibitCard extends StatelessWidget {
   }
 }
 
-/// Превью экспоната с мягким зумом при наведении.
+/// Превью экспоната. Снимок показывается в естественных цветах.
 class ExhibitThumb extends StatelessWidget {
-  const ExhibitThumb({
-    super.key,
-    required this.exhibit,
-    this.zoom = false,
-    this.fit = BoxFit.cover,
-  });
+  const ExhibitThumb({super.key, required this.exhibit, this.fit = BoxFit.cover});
 
   final Exhibit exhibit;
-  final bool zoom;
   final BoxFit fit;
 
   @override
   Widget build(BuildContext context) {
     final cover = exhibit.cover;
-    if (cover == null) {
-      return ColoredBox(
-        color: context.tones.stageTop,
-        child: Icon(Icons.image_not_supported_outlined, color: context.tones.muted),
-      );
-    }
-    return AnimatedScale(
-      duration: kSlow,
-      curve: Curves.easeOutCubic,
-      scale: zoom ? 1.045 : 1,
-      child: Image.asset(
-        cover,
-        fit: fit,
-        filterQuality: FilterQuality.medium,
-        errorBuilder: (context, _, _) => ColoredBox(
-          color: context.tones.stageTop,
-          child: Icon(Icons.broken_image_outlined, color: context.tones.muted),
-        ),
-      ),
+    if (cover == null) return const _ThumbPlaceholder(Icons.image_not_supported_outlined);
+    return Image.asset(
+      cover,
+      fit: fit,
+      filterQuality: FilterQuality.medium,
+      errorBuilder: (context, _, _) => const _ThumbPlaceholder(Icons.broken_image_outlined),
+    );
+  }
+}
+
+class _ThumbPlaceholder extends StatelessWidget {
+  const _ThumbPlaceholder(this.icon);
+
+  final IconData icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return ColoredBox(
+      color: AppColors.raised,
+      child: Icon(icon, color: AppColors.textSecondary),
     );
   }
 }

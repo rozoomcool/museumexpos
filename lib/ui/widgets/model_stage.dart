@@ -17,10 +17,15 @@ class ModelStage extends StatefulWidget {
     super.key,
     required this.exhibit,
     this.fullscreen = false,
+    this.framed = true,
   });
 
   final Exhibit exhibit;
   final bool fullscreen;
+
+  /// Рисовать ли собственную панель вокруг сцены. В вертикальной раскладке
+  /// сцена уже лежит внутри общей панели с описанием.
+  final bool framed;
 
   /// Подмена самого просмотрщика. Нужна снимкам раскладки: плагин вебвью в
   /// тестовой среде не регистрируется и падает на assert при построении.
@@ -87,17 +92,12 @@ class _ModelStageState extends State<ModelStage> {
 
   @override
   Widget build(BuildContext context) {
-    final tones = context.tones;
     final model = widget.exhibit.model;
+    // Плоский фон: просмотрщик прозрачный, модель лежит прямо на панели.
+    final background = widget.fullscreen ? AppColors.background : AppColors.panel;
 
-    final stage = DecoratedBox(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [tones.stageTop, tones.stageBottom],
-        ),
-      ),
+    final stage = ColoredBox(
+      color: background,
       child: model == null
           ? _NoModel(exhibit: widget.exhibit)
           : Stack(
@@ -138,41 +138,37 @@ class _ModelStageState extends State<ModelStage> {
                     child: AnimatedOpacity(
                       duration: kMedium,
                       opacity: _loaded ? 0 : 1,
-                      child: _LoadingVeil(progress: _progress),
+                      child: _LoadingVeil(progress: _progress, color: background),
                     ),
                   ),
-                Positioned(
-                  left: 14,
-                  top: 14,
+                const Positioned(
+                  left: AppSpacing.sm,
+                  top: AppSpacing.sm,
                   child: IgnorePointer(
-                    child: Tag(
-                      label: '3D-модель',
-                      icon: Icons.view_in_ar_outlined,
-                      accent: true,
-                    ),
+                    child: Tag(label: '3D-модель', icon: Icons.view_in_ar_outlined),
                   ),
                 ),
                 Positioned(
-                  right: 14,
-                  top: 14,
+                  right: AppSpacing.sm,
+                  top: AppSpacing.sm,
                   child: Row(
                     children: [
-                      GlassButton(
+                      PanelIconButton(
                         icon: _spinning
                             ? Icons.pause_rounded
                             : Icons.threesixty_rounded,
                         tooltip: _spinning ? 'Остановить вращение' : 'Вращать',
                         onPressed: _loaded ? _toggleSpin : null,
                       ),
-                      const SizedBox(width: 8),
-                      GlassButton(
+                      const SizedBox(width: AppSpacing.xs),
+                      PanelIconButton(
                         icon: Icons.center_focus_strong_outlined,
                         tooltip: 'Исходный ракурс',
                         onPressed: _loaded ? _resetView : null,
                       ),
                       if (!widget.fullscreen) ...[
-                        const SizedBox(width: 8),
-                        GlassButton(
+                        const SizedBox(width: AppSpacing.xs),
+                        PanelIconButton(
                           icon: Icons.open_in_full_rounded,
                           tooltip: 'Во весь экран',
                           onPressed: _loaded ? _openFullscreen : null,
@@ -185,7 +181,7 @@ class _ModelStageState extends State<ModelStage> {
                   Positioned(
                     left: 0,
                     right: 0,
-                    bottom: 12,
+                    bottom: AppSpacing.sm,
                     child: IgnorePointer(
                       child: Center(
                         child: _Hint(
@@ -198,18 +194,8 @@ class _ModelStageState extends State<ModelStage> {
             ),
     );
 
-    if (widget.fullscreen) return stage;
-
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(kRadius),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(kRadius),
-          border: Border.all(color: tones.hairline),
-        ),
-        child: stage,
-      ),
-    );
+    if (widget.fullscreen || !widget.framed) return stage;
+    return SectionSurface(child: stage);
   }
 }
 
@@ -221,26 +207,30 @@ class _FullscreenStage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: context.tones.stageBottom,
+      backgroundColor: AppColors.background,
       body: Stack(
         fit: StackFit.expand,
         children: [
           ModelStage(exhibit: exhibit, fullscreen: true),
           Positioned(
-            left: 0,
-            right: 0,
-            bottom: 26,
-            child: Center(
-              child: _Hint(text: exhibit.title),
+            left: AppSpacing.lg,
+            right: AppSpacing.lg + kTouchTarget + AppSpacing.md,
+            bottom: AppSpacing.lg,
+            child: IgnorePointer(
+              child: Text(
+                exhibit.title,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: context.text.headlineSmall,
+              ),
             ),
           ),
           Positioned(
-            right: 18,
-            bottom: 22,
-            child: GlassButton(
+            right: AppSpacing.lg,
+            bottom: AppSpacing.lg,
+            child: PanelIconButton(
               icon: Icons.close_fullscreen_rounded,
               tooltip: 'Свернуть',
-              size: 44,
               onPressed: () => Navigator.of(context).maybePop(),
             ),
           ),
@@ -270,23 +260,19 @@ class _NoModel extends StatelessWidget {
       children: [
         Hoverable(
           onTap: () => PhotoLightbox.open(context, exhibit: exhibit, index: 0),
-          builder: (context, hovered) => ExhibitThumb(
-            exhibit: exhibit,
-            zoom: hovered,
-            fit: BoxFit.contain,
-          ),
+          builder: (context, _) => ExhibitThumb(exhibit: exhibit, fit: BoxFit.contain),
         ),
-        Positioned(
-          left: 14,
-          top: 14,
+        const Positioned(
+          left: AppSpacing.sm,
+          top: AppSpacing.sm,
           child: IgnorePointer(
             child: Tag(label: 'Только фотографии', icon: Icons.photo_outlined),
           ),
         ),
-        Positioned(
+        const Positioned(
           left: 0,
           right: 0,
-          bottom: 12,
+          bottom: AppSpacing.sm,
           child: IgnorePointer(
             child: Center(child: _Hint(text: '3D-модель для этого предмета не снята')),
           ),
@@ -297,30 +283,28 @@ class _NoModel extends StatelessWidget {
 }
 
 class _LoadingVeil extends StatelessWidget {
-  const _LoadingVeil({required this.progress});
+  const _LoadingVeil({required this.progress, required this.color});
 
   final double progress;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
-    final tones = context.tones;
     return ColoredBox(
-      color: tones.stageBottom,
+      color: color,
       child: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(
-              width: 34,
-              height: 34,
+              width: 32,
+              height: 32,
               child: CircularProgressIndicator(
                 strokeWidth: 2,
                 value: progress > 0 && progress < 1 ? progress : null,
-                color: context.colors.primary,
-                backgroundColor: tones.hairline,
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: AppSpacing.md),
             Text(
               progress > 0 ? 'Загрузка модели · ${(progress * 100).round()}%' : 'Подготовка сцены',
               style: context.text.bodySmall,
@@ -347,14 +331,14 @@ class _StageMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(28),
+        padding: const EdgeInsets.all(AppSpacing.lg),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(icon, size: 32, color: context.tones.muted),
-            const SizedBox(height: 14),
+            Icon(icon, size: 32, color: AppColors.textSecondary),
+            const SizedBox(height: AppSpacing.md),
             Text(title, style: context.text.titleMedium),
-            const SizedBox(height: 6),
+            const SizedBox(height: AppSpacing.xs),
             Text(
               subtitle,
               textAlign: TextAlign.center,
@@ -377,19 +361,16 @@ class _Hint extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      padding: const EdgeInsets.symmetric(
+        horizontal: AppSpacing.sm,
+        vertical: AppSpacing.xxs,
+      ),
       decoration: BoxDecoration(
-        color: Colors.black.withValues(alpha: 0.35),
-        borderRadius: BorderRadius.circular(999),
+        color: AppColors.panel,
+        borderRadius: BorderRadius.circular(AppRadii.button),
+        border: Border.all(color: AppColors.divider),
       ),
-      child: Text(
-        text,
-        style: context.text.labelSmall?.copyWith(
-          color: Colors.white.withValues(alpha: 0.75),
-          letterSpacing: 0.2,
-          fontSize: 10.5,
-        ),
-      ),
+      child: Text(text, style: context.text.labelSmall),
     );
   }
 }

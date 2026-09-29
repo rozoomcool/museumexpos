@@ -1,204 +1,256 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-/// Дополнительные цвета, которых нет в [ColorScheme]: фон «сцены» 3D-просмотра,
-/// приглушённые границы и цвет подложки карточек.
-@immutable
-class AppTones extends ThemeExtension<AppTones> {
-  const AppTones({
-    required this.canvas,
-    required this.card,
-    required this.cardHover,
-    required this.hairline,
-    required this.stageTop,
-    required this.stageBottom,
-    required this.muted,
-    required this.accentSoft,
-  });
+import 'tokens.dart';
 
-  final Color canvas;
-  final Color card;
-  final Color cardHover;
-  final Color hairline;
-  final Color stageTop;
-  final Color stageBottom;
-  final Color muted;
-  final Color accentSoft;
-
-  @override
-  AppTones copyWith({
-    Color? canvas,
-    Color? card,
-    Color? cardHover,
-    Color? hairline,
-    Color? stageTop,
-    Color? stageBottom,
-    Color? muted,
-    Color? accentSoft,
-  }) => AppTones(
-    canvas: canvas ?? this.canvas,
-    card: card ?? this.card,
-    cardHover: cardHover ?? this.cardHover,
-    hairline: hairline ?? this.hairline,
-    stageTop: stageTop ?? this.stageTop,
-    stageBottom: stageBottom ?? this.stageBottom,
-    muted: muted ?? this.muted,
-    accentSoft: accentSoft ?? this.accentSoft,
-  );
-
-  @override
-  AppTones lerp(AppTones? other, double t) {
-    if (other == null) return this;
-    return AppTones(
-      canvas: Color.lerp(canvas, other.canvas, t)!,
-      card: Color.lerp(card, other.card, t)!,
-      cardHover: Color.lerp(cardHover, other.cardHover, t)!,
-      hairline: Color.lerp(hairline, other.hairline, t)!,
-      stageTop: Color.lerp(stageTop, other.stageTop, t)!,
-      stageBottom: Color.lerp(stageBottom, other.stageBottom, t)!,
-      muted: Color.lerp(muted, other.muted, t)!,
-      accentSoft: Color.lerp(accentSoft, other.accentSoft, t)!,
-    );
-  }
-}
+export 'tokens.dart';
 
 extension AppThemeX on BuildContext {
-  AppTones get tones => Theme.of(this).extension<AppTones>()!;
   ColorScheme get colors => Theme.of(this).colorScheme;
   TextTheme get text => Theme.of(this).textTheme;
 }
 
-/// Тёмная тема — основная: витринные фотографии и 3D читаются на ней лучше.
-/// Светлая нужна для яркого зала, где экран бликует.
+/// Тема по дизайн-системе музея ЧГУ (см. `docs/design-system.md`).
+///
+/// Одна тёмная тема: палитра музея и белый логотип рассчитаны на тёмный фон.
+/// Поверхности плоские — без теней, размытия, градиентов и surface tint.
+/// Literata назначена только стилям `display*` и `headline*`, всё остальное —
+/// Manrope.
 abstract final class AppTheme {
-  static const _bronze = Color(0xFFD8A94A);
-  static const _bronzeDeep = Color(0xFF9C6F14);
-
-  static ThemeData dark() => _build(
+  static const _scheme = ColorScheme(
     brightness: Brightness.dark,
-    scheme: const ColorScheme.dark(
-      primary: _bronze,
-      onPrimary: Color(0xFF241A00),
-      secondary: Color(0xFF8FA6B8),
-      onSecondary: Color(0xFF0E1116),
-      surface: Color(0xFF14161B),
-      onSurface: Color(0xFFF1EFEA),
-      onSurfaceVariant: Color(0xFF9BA0AB),
-      outline: Color(0xFF2B303A),
-      outlineVariant: Color(0xFF20242C),
-      error: Color(0xFFE0796B),
+    primary: AppColors.brass,
+    onPrimary: AppColors.background,
+    primaryContainer: AppColors.raised,
+    onPrimaryContainer: AppColors.textPrimary,
+    secondary: AppColors.textSecondary,
+    onSecondary: AppColors.background,
+    error: AppColors.error,
+    onError: AppColors.background,
+    errorContainer: AppColors.errorBg,
+    onErrorContainer: AppColors.error,
+    surface: AppColors.panel,
+    onSurface: AppColors.textPrimary,
+    onSurfaceVariant: AppColors.textSecondary,
+    surfaceContainerLowest: AppColors.background,
+    surfaceContainerLow: AppColors.panel,
+    surfaceContainer: AppColors.panel,
+    surfaceContainerHigh: AppColors.raised,
+    surfaceContainerHighest: AppColors.raised,
+    outline: AppColors.outline,
+    outlineVariant: AppColors.divider,
+    surfaceTint: Colors.transparent,
+    shadow: Colors.transparent,
+  );
+
+  static const _heading = TextStyle(
+    fontFamily: AppFonts.heading,
+    fontWeight: FontWeight.w400,
+    color: AppColors.textPrimary,
+    height: 1.2,
+  );
+
+  static const _body = TextStyle(
+    fontFamily: AppFonts.body,
+    fontWeight: FontWeight.w400,
+    color: AppColors.textPrimary,
+    height: 1.5,
+  );
+
+  static const _label = TextStyle(
+    fontFamily: AppFonts.body,
+    fontWeight: FontWeight.w600,
+    color: AppColors.textPrimary,
+    height: 1.35,
+  );
+
+  static final _textTheme = TextTheme(
+    // Заголовки: Literata Regular, 28–88 px, межстрочный 1.15–1.25.
+    displayLarge: _heading.copyWith(fontSize: 64, height: 1.15),
+    displayMedium: _heading.copyWith(fontSize: 48, height: 1.15),
+    displaySmall: _heading.copyWith(fontSize: 40),
+    headlineLarge: _heading.copyWith(fontSize: 36),
+    headlineMedium: _heading.copyWith(fontSize: 32),
+    headlineSmall: _heading.copyWith(fontSize: 28),
+    // Заголовки интерфейса — Manrope SemiBold.
+    titleLarge: _label.copyWith(fontSize: 22, height: 1.3),
+    titleMedium: _label.copyWith(fontSize: 18),
+    titleSmall: _label.copyWith(fontSize: 16),
+    // Основной текст: 16–22 px, межстрочный 1.45–1.6.
+    bodyLarge: _body.copyWith(fontSize: 18, height: 1.55),
+    bodyMedium: _body.copyWith(fontSize: 16),
+    bodySmall: _body.copyWith(
+      fontSize: 14,
+      height: 1.45,
+      color: AppColors.textSecondary,
     ),
-    tones: const AppTones(
-      canvas: Color(0xFF0D0F13),
-      card: Color(0xFF171A20),
-      cardHover: Color(0xFF1E222A),
-      hairline: Color(0xFF262B34),
-      stageTop: Color(0xFF1B1F26),
-      stageBottom: Color(0xFF0B0D11),
-      muted: Color(0xFF767C88),
-      accentSoft: Color(0x1FD8A94A),
+    // Кнопки и служебные подписи: 12–16 px.
+    labelLarge: _label.copyWith(fontSize: 16, height: 1.25),
+    labelMedium: _label.copyWith(fontSize: 14, color: AppColors.textSecondary),
+    labelSmall: _label.copyWith(
+      fontSize: 12,
+      color: AppColors.textSecondary,
+      letterSpacing: 0.4,
     ),
   );
 
-  static ThemeData light() => _build(
-    brightness: Brightness.light,
-    scheme: const ColorScheme.light(
-      primary: _bronzeDeep,
-      onPrimary: Color(0xFFFFFFFF),
-      secondary: Color(0xFF4A5A68),
-      onSecondary: Color(0xFFFFFFFF),
-      surface: Color(0xFFFFFFFF),
-      onSurface: Color(0xFF15181D),
-      onSurfaceVariant: Color(0xFF5C626C),
-      outline: Color(0xFFDCD8CF),
-      outlineVariant: Color(0xFFEBE7DF),
-      error: Color(0xFFB3261E),
-    ),
-    tones: const AppTones(
-      canvas: Color(0xFFF6F4F0),
-      card: Color(0xFFFFFFFF),
-      cardHover: Color(0xFFFBF9F5),
-      hairline: Color(0xFFE6E2D9),
-      stageTop: Color(0xFFFFFFFF),
-      stageBottom: Color(0xFFECE8E0),
-      muted: Color(0xFF8A8F98),
-      accentSoft: Color(0x1A9C6F14),
-    ),
+  static bool _isActive(Set<WidgetState> states) =>
+      states.contains(WidgetState.hovered) ||
+      states.contains(WidgetState.focused) ||
+      states.contains(WidgetState.pressed);
+
+  static const _buttonShape = RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(Radius.circular(AppRadii.button)),
+  );
+  static const _buttonMinSize = Size(kTouchTarget, kTouchTarget);
+  static const _buttonPadding = EdgeInsets.symmetric(
+    horizontal: AppSpacing.lg,
+    vertical: AppSpacing.sm,
   );
 
-  static ThemeData _build({
-    required Brightness brightness,
-    required ColorScheme scheme,
-    required AppTones tones,
-  }) {
-    final base = ThemeData(brightness: brightness, colorScheme: scheme);
-    final onSurface = scheme.onSurface;
-    final onVariant = scheme.onSurfaceVariant;
+  /// Текст второстепенных кнопок: основной цвет, при наведении и фокусе —
+  /// светлая латунь.
+  static final _quietForeground = WidgetStateProperty.resolveWith<Color>((states) {
+    if (states.contains(WidgetState.disabled)) {
+      return AppColors.textSecondary.withValues(alpha: 0.5);
+    }
+    return _isActive(states) ? AppColors.brassHover : AppColors.textPrimary;
+  });
 
-    TextStyle display(double size, {FontWeight weight = FontWeight.w600, double height = 1.12}) =>
-        TextStyle(
-          fontFamily: 'Playfair',
-          fontSize: size,
-          fontWeight: weight,
-          height: height,
-          color: onSurface,
-          letterSpacing: -0.2,
-        );
+  static final _quietOverlay = WidgetStateProperty.resolveWith<Color?>(
+    (states) => _isActive(states) ? AppColors.brassHover.withValues(alpha: 0.08) : null,
+  );
 
-    TextStyle body(
-      double size, {
-      FontWeight weight = FontWeight.w400,
-      double height = 1.5,
-      Color? color,
-      double spacing = 0,
-    }) => TextStyle(
-      fontFamily: 'Inter',
-      fontSize: size,
-      fontWeight: weight,
-      height: height,
-      color: color ?? onSurface,
-      letterSpacing: spacing,
+  static OutlineInputBorder _fieldBorder(Color color) => OutlineInputBorder(
+    borderRadius: BorderRadius.circular(AppRadii.field),
+    borderSide: BorderSide(color: color),
+  );
+
+  static ThemeData dark() {
+    final base = ThemeData(
+      useMaterial3: true,
+      brightness: Brightness.dark,
+      colorScheme: _scheme,
+      fontFamily: AppFonts.body,
     );
-
     return base.copyWith(
-      scaffoldBackgroundColor: tones.canvas,
-      canvasColor: tones.canvas,
-      splashFactory: InkSparkle.splashFactory,
+      textTheme: _textTheme,
+      scaffoldBackgroundColor: AppColors.background,
+      canvasColor: AppColors.background,
+      dividerColor: AppColors.divider,
+      focusColor: AppColors.brassHover.withValues(alpha: 0.12),
+      hoverColor: AppColors.brassHover.withValues(alpha: 0.08),
+      splashFactory: InkRipple.splashFactory,
       visualDensity: VisualDensity.standard,
-      extensions: [tones],
-      textTheme: TextTheme(
-        displayLarge: display(46),
-        displayMedium: display(36),
-        displaySmall: display(28),
-        headlineMedium: display(24),
-        headlineSmall: display(20),
-        titleLarge: body(17, weight: FontWeight.w600, height: 1.3),
-        titleMedium: body(15, weight: FontWeight.w600, height: 1.35),
-        titleSmall: body(13, weight: FontWeight.w600, height: 1.35),
-        bodyLarge: body(16, height: 1.62, color: onVariant),
-        bodyMedium: body(14.5, height: 1.6, color: onVariant),
-        bodySmall: body(13, height: 1.5, color: tones.muted),
-        labelLarge: body(14, weight: FontWeight.w600, height: 1.2),
-        labelMedium: body(12.5, weight: FontWeight.w500, height: 1.2),
-        labelSmall: body(11, weight: FontWeight.w600, height: 1.2, spacing: 0.9),
+      dividerTheme: const DividerThemeData(
+        color: AppColors.divider,
+        thickness: 1,
+        space: 1,
       ),
-      dividerTheme: DividerThemeData(color: tones.hairline, thickness: 1, space: 1),
-      iconTheme: IconThemeData(color: onVariant, size: 20),
+      iconTheme: const IconThemeData(color: AppColors.textPrimary, size: 20),
+      progressIndicatorTheme: const ProgressIndicatorThemeData(
+        color: AppColors.brass,
+        circularTrackColor: AppColors.divider,
+        linearTrackColor: AppColors.divider,
+      ),
+
+      // Одно главное действие на экране.
+      filledButtonTheme: FilledButtonThemeData(
+        style: ButtonStyle(
+          minimumSize: const WidgetStatePropertyAll(_buttonMinSize),
+          padding: const WidgetStatePropertyAll(_buttonPadding),
+          shape: const WidgetStatePropertyAll(_buttonShape),
+          elevation: const WidgetStatePropertyAll(0),
+          textStyle: WidgetStatePropertyAll(_textTheme.labelLarge),
+          backgroundColor: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.disabled)) return AppColors.raised;
+            return _isActive(states) ? AppColors.brassHover : AppColors.brass;
+          }),
+          foregroundColor: WidgetStateProperty.resolveWith(
+            (states) => states.contains(WidgetState.disabled)
+                ? AppColors.textSecondary
+                : AppColors.background,
+          ),
+          overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+        ),
+      ),
+
+      // Второстепенные действия: контур, при наведении — латунный контур.
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: ButtonStyle(
+          minimumSize: const WidgetStatePropertyAll(_buttonMinSize),
+          padding: const WidgetStatePropertyAll(_buttonPadding),
+          shape: const WidgetStatePropertyAll(_buttonShape),
+          textStyle: WidgetStatePropertyAll(_textTheme.labelLarge),
+          foregroundColor: _quietForeground,
+          overlayColor: _quietOverlay,
+          side: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return const BorderSide(color: AppColors.divider);
+            }
+            return BorderSide(
+              color: _isActive(states) ? AppColors.brassHover : AppColors.outline,
+            );
+          }),
+        ),
+      ),
+
+      textButtonTheme: TextButtonThemeData(
+        style: ButtonStyle(
+          minimumSize: const WidgetStatePropertyAll(_buttonMinSize),
+          padding: const WidgetStatePropertyAll(_buttonPadding),
+          shape: const WidgetStatePropertyAll(_buttonShape),
+          textStyle: WidgetStatePropertyAll(_textTheme.labelLarge),
+          foregroundColor: _quietForeground,
+          overlayColor: _quietOverlay,
+        ),
+      ),
+
+      iconButtonTheme: IconButtonThemeData(
+        style: ButtonStyle(
+          shape: const WidgetStatePropertyAll(_buttonShape),
+          foregroundColor: _quietForeground,
+          overlayColor: _quietOverlay,
+        ),
+      ),
+
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: AppColors.panel,
+        hintStyle: _textTheme.bodyMedium?.copyWith(color: AppColors.textSecondary),
+        border: _fieldBorder(AppColors.outline),
+        enabledBorder: _fieldBorder(AppColors.outline),
+        focusedBorder: _fieldBorder(AppColors.brassHover),
+        prefixIconColor: AppColors.textSecondary,
+        suffixIconColor: AppColors.textSecondary,
+      ),
+
+      textSelectionTheme: TextSelectionThemeData(
+        cursorColor: AppColors.brass,
+        selectionColor: AppColors.brass.withValues(alpha: 0.3),
+        selectionHandleColor: AppColors.brass,
+      ),
+
       tooltipTheme: TooltipThemeData(
         waitDuration: const Duration(milliseconds: 500),
-        decoration: BoxDecoration(
-          color: brightness == Brightness.dark
-              ? const Color(0xFF272C35)
-              : const Color(0xFF23262B),
-          borderRadius: BorderRadius.circular(8),
+        padding: const EdgeInsets.symmetric(
+          horizontal: AppSpacing.sm,
+          vertical: AppSpacing.xs,
         ),
-        textStyle: body(12.5, color: Colors.white, weight: FontWeight.w500),
+        decoration: BoxDecoration(
+          color: AppColors.raised,
+          borderRadius: BorderRadius.circular(AppRadii.button),
+          border: Border.all(color: AppColors.divider),
+        ),
+        textStyle: _textTheme.labelMedium?.copyWith(color: AppColors.textPrimary),
       ),
+
       scrollbarTheme: ScrollbarThemeData(
-        thickness: WidgetStatePropertyAll(6),
-        radius: const Radius.circular(3),
-        thumbColor: WidgetStatePropertyAll(onVariant.withValues(alpha: 0.28)),
+        thickness: const WidgetStatePropertyAll(4),
+        radius: const Radius.circular(2),
+        thumbColor: WidgetStatePropertyAll(AppColors.outline.withValues(alpha: 0.6)),
       ),
+
       pageTransitionsTheme: const PageTransitionsTheme(
         builders: {
           TargetPlatform.android: FadeForwardsPageTransitionsBuilder(),
@@ -208,14 +260,8 @@ abstract final class AppTheme {
     );
   }
 
-  static SystemUiOverlayStyle overlayFor(Brightness brightness) =>
-      brightness == Brightness.dark
-      ? SystemUiOverlayStyle.light.copyWith(
-          statusBarColor: Colors.transparent,
-          systemNavigationBarColor: const Color(0xFF0D0F13),
-        )
-      : SystemUiOverlayStyle.dark.copyWith(
-          statusBarColor: Colors.transparent,
-          systemNavigationBarColor: const Color(0xFFF6F4F0),
-        );
+  static final SystemUiOverlayStyle overlay = SystemUiOverlayStyle.light.copyWith(
+    statusBarColor: Colors.transparent,
+    systemNavigationBarColor: AppColors.background,
+  );
 }

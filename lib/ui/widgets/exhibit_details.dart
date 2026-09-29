@@ -27,6 +27,9 @@ class ExhibitDetails extends StatefulWidget {
 class _ExhibitDetailsState extends State<ExhibitDetails> {
   int _photo = 0;
 
+  /// Удобная для чтения длина строки описания.
+  static const _readingWidth = 720.0;
+
   @override
   void didUpdateWidget(covariant ExhibitDetails oldWidget) {
     super.didUpdateWidget(oldWidget);
@@ -37,70 +40,100 @@ class _ExhibitDetailsState extends State<ExhibitDetails> {
   Widget build(BuildContext context) {
     final exhibit = widget.exhibit;
     final state = context.watch<GalleryState>();
-    final pad = widget.compact ? 18.0 : 26.0;
+    final pad = widget.compact ? AppSpacing.md : AppSpacing.lg;
 
     return SingleChildScrollView(
-      padding: EdgeInsets.fromLTRB(pad, pad - 4, pad, pad),
+      padding: EdgeInsets.all(pad),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                child: Wrap(
-                  spacing: 8,
-                  runSpacing: 8,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  children: [
-                    Tag(label: widget.category.title, icon: iconFor(widget.category.icon)),
-                    Tag(label: '№ ${exhibit.number} из 60'),
-                    if (exhibit.hasModel)
-                      Tag(label: '3D', icon: Icons.view_in_ar_outlined, accent: true),
-                    if (exhibit.photos.length > 1)
-                      Tag(
-                        label: plural(exhibit.photos.length, 'фото', 'фото', 'фото'),
-                        icon: Icons.photo_library_outlined,
-                      ),
-                  ],
+                child: Padding(
+                  // Выравнивает строку метаданных по центру кнопки закрытия.
+                  padding: const EdgeInsets.only(top: AppSpacing.sm),
+                  child: Wrap(
+                    spacing: AppSpacing.md,
+                    runSpacing: AppSpacing.xs,
+                    children: [
+                      _Meta(icon: iconFor(widget.category.icon), label: widget.category.title),
+                      _Meta(label: '№ ${exhibit.number} из 60'),
+                      if (exhibit.hasModel)
+                        const _Meta(icon: Icons.view_in_ar_outlined, label: '3D-модель'),
+                      if (exhibit.photos.length > 1)
+                        _Meta(
+                          icon: Icons.photo_library_outlined,
+                          label: plural(exhibit.photos.length, 'фото', 'фото', 'фото'),
+                        ),
+                    ],
+                  ),
                 ),
               ),
-              const SizedBox(width: 12),
-              IconButton(
-                onPressed: context.read<GalleryState>().clearSelection,
-                icon: const Icon(Icons.close_rounded, size: 18),
+              const SizedBox(width: AppSpacing.sm),
+              PanelIconButton(
+                icon: Icons.close_rounded,
                 tooltip: 'Ко всем экспонатам (Esc)',
-                style: IconButton.styleFrom(
-                  backgroundColor: context.tones.hairline.withValues(alpha: 0.6),
-                  minimumSize: const Size(34, 34),
-                  padding: EdgeInsets.zero,
-                ),
+                onPressed: context.read<GalleryState>().clearSelection,
               ),
             ],
           ),
-          const SizedBox(height: 16),
-          Text(
-            exhibit.title,
-            style: (widget.compact
-                    ? context.text.headlineMedium
-                    : context.text.displaySmall)
-                ?.copyWith(height: 1.16),
+          const SizedBox(height: AppSpacing.md),
+          ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: _readingWidth),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  exhibit.title,
+                  style: widget.compact
+                      ? context.text.headlineSmall
+                      : context.text.headlineLarge,
+                ),
+                if (exhibit.reason.isNotEmpty) ...[
+                  const SizedBox(height: AppSpacing.md),
+                  Text(exhibit.reason, style: context.text.bodyLarge),
+                ],
+              ],
+            ),
           ),
-          if (exhibit.reason.isNotEmpty) ...[
-            const SizedBox(height: 14),
-            Text(exhibit.reason, style: context.text.bodyLarge),
-          ],
           if (exhibit.hasPhotos) ...[
-            const SizedBox(height: 22),
+            const SizedBox(height: AppSpacing.lg),
             _Gallery(
               exhibit: exhibit,
               index: _photo,
               onSelect: (i) => setState(() => _photo = i),
             ),
           ],
-          const SizedBox(height: 22),
+          const SizedBox(height: AppSpacing.lg),
+          const Divider(),
+          const SizedBox(height: AppSpacing.md),
           _Navigation(state: state),
         ],
       ),
+    );
+  }
+}
+
+/// Элемент строки метаданных: раздел, номер, наличие 3D, число фото.
+class _Meta extends StatelessWidget {
+  const _Meta({required this.label, this.icon});
+
+  final String label;
+  final IconData? icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        if (icon != null) ...[
+          Icon(icon, size: 18, color: AppColors.textSecondary),
+          const SizedBox(width: AppSpacing.xs),
+        ],
+        Text(label, style: context.text.labelMedium),
+      ],
     );
   }
 }
@@ -118,22 +151,20 @@ class _Gallery extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tones = context.tones;
+    final count = exhibit.photos.length;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SectionLabel('Фотографии'),
-        const SizedBox(height: 10),
+        SectionLabel('Фотографии', detail: count > 1 ? '${index + 1} из $count' : null),
+        const SizedBox(height: AppSpacing.xs),
         Hoverable(
           onTap: () => PhotoLightbox.open(context, exhibit: exhibit, index: index),
           builder: (context, hovered) => AnimatedContainer(
             duration: kFast,
             decoration: BoxDecoration(
-              color: tones.stageBottom,
-              borderRadius: BorderRadius.circular(kRadius),
-              border: Border.all(
-                color: hovered ? tones.muted.withValues(alpha: 0.5) : tones.hairline,
-              ),
+              color: AppColors.background,
+              borderRadius: BorderRadius.circular(AppRadii.card),
+              border: Border.all(color: hovered ? AppColors.outline : AppColors.divider),
             ),
             clipBehavior: Clip.antiAlias,
             child: AspectRatio(
@@ -155,19 +186,15 @@ class _Gallery extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    right: 12,
-                    bottom: 12,
-                    child: AnimatedOpacity(
-                      duration: kFast,
-                      opacity: hovered ? 1 : 0.55,
-                      child: GlassButton(
-                        icon: Icons.zoom_out_map_rounded,
-                        tooltip: 'Открыть во весь экран',
-                        onPressed: () => PhotoLightbox.open(
-                          context,
-                          exhibit: exhibit,
-                          index: index,
-                        ),
+                    right: AppSpacing.sm,
+                    bottom: AppSpacing.sm,
+                    child: PanelIconButton(
+                      icon: Icons.zoom_out_map_rounded,
+                      tooltip: 'Открыть во весь экран',
+                      onPressed: () => PhotoLightbox.open(
+                        context,
+                        exhibit: exhibit,
+                        index: index,
                       ),
                     ),
                   ),
@@ -176,30 +203,30 @@ class _Gallery extends StatelessWidget {
             ),
           ),
         ),
-        if (exhibit.photos.length > 1) ...[
-          const SizedBox(height: 10),
+        if (count > 1) ...[
+          const SizedBox(height: AppSpacing.xs),
           SizedBox(
-            height: 62,
+            height: 64,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemCount: exhibit.thumbs.length,
-              separatorBuilder: (_, _) => const SizedBox(width: 8),
+              separatorBuilder: (_, _) => const SizedBox(width: AppSpacing.xs),
               itemBuilder: (context, i) {
                 final selected = i == index;
                 return Hoverable(
                   onTap: () => onSelect(i),
                   builder: (context, hovered) => AnimatedContainer(
                     duration: kFast,
-                    width: 82,
+                    width: 88,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(kRadiusSmall),
+                      borderRadius: BorderRadius.circular(AppRadii.button),
                       border: Border.all(
                         color: selected
-                            ? context.colors.primary
+                            ? AppColors.brass
                             : hovered
-                            ? tones.muted.withValues(alpha: 0.6)
-                            : tones.hairline,
-                        width: selected ? 1.8 : 1,
+                            ? AppColors.outline
+                            : AppColors.divider,
+                        width: selected ? 2 : 1,
                       ),
                     ),
                     clipBehavior: Clip.antiAlias,
@@ -228,65 +255,47 @@ class _Navigation extends StatelessWidget {
   Widget build(BuildContext context) {
     final items = state.visibleExhibits;
     final index = state.selectedIndex;
-    return Row(
-      children: [
-        _NavButton(
-          icon: Icons.arrow_back_rounded,
-          label: 'Предыдущий',
-          onPressed: state.hasPrevious ? () => state.step(-1) : null,
-        ),
-        const SizedBox(width: 10),
-        _NavButton(
-          icon: Icons.arrow_forward_rounded,
-          label: 'Следующий',
-          trailingIcon: true,
-          onPressed: state.hasNext ? () => state.step(1) : null,
-        ),
-        const Spacer(),
-        if (index >= 0)
-          Text(
-            '${index + 1} / ${items.length}',
-            style: context.text.labelMedium?.copyWith(color: context.tones.muted),
-          ),
-      ],
-    );
-  }
-}
+    final previous = state.hasPrevious ? () => state.step(-1) : null;
+    final next = state.hasNext ? () => state.step(1) : null;
 
-class _NavButton extends StatelessWidget {
-  const _NavButton({
-    required this.icon,
-    required this.label,
-    required this.onPressed,
-    this.trailingIcon = false,
-  });
-
-  final IconData icon;
-  final String label;
-  final VoidCallback? onPressed;
-  final bool trailingIcon;
-
-  @override
-  Widget build(BuildContext context) {
-    final children = [
-      Icon(icon, size: 16),
-      const SizedBox(width: 8),
-      Text(label),
-    ];
-    return OutlinedButton(
-      onPressed: onPressed,
-      style: OutlinedButton.styleFrom(
-        foregroundColor: context.colors.onSurface,
-        disabledForegroundColor: context.tones.muted.withValues(alpha: 0.5),
-        side: BorderSide(color: context.tones.hairline),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(kRadiusSmall)),
-        textStyle: context.text.labelLarge,
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: trailingIcon ? children.reversed.toList() : children,
-      ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // На узком экране подписи кнопок не помещаются — остаются иконки.
+        final iconsOnly = constraints.maxWidth < 440;
+        return Row(
+          children: [
+            if (iconsOnly) ...[
+              PanelIconButton(
+                icon: Icons.arrow_back_rounded,
+                tooltip: 'Предыдущий',
+                onPressed: previous,
+              ),
+              const SizedBox(width: AppSpacing.xs),
+              PanelIconButton(
+                icon: Icons.arrow_forward_rounded,
+                tooltip: 'Следующий',
+                onPressed: next,
+              ),
+            ] else ...[
+              OutlinedButton.icon(
+                onPressed: previous,
+                icon: const Icon(Icons.arrow_back_rounded, size: 20),
+                label: const Text('Предыдущий'),
+              ),
+              const SizedBox(width: AppSpacing.xs),
+              OutlinedButton.icon(
+                onPressed: next,
+                icon: const Icon(Icons.arrow_forward_rounded, size: 20),
+                iconAlignment: IconAlignment.end,
+                label: const Text('Следующий'),
+              ),
+            ],
+            const Spacer(),
+            if (index >= 0)
+              Text('${index + 1} / ${items.length}', style: context.text.labelMedium),
+          ],
+        );
+      },
     );
   }
 }

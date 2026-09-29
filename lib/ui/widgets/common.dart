@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../core/theme/app_theme.dart';
 
-const kRadius = 18.0;
-const kRadiusSmall = 12.0;
 const kFast = Duration(milliseconds: 160);
 const kMedium = Duration(milliseconds: 260);
-const kSlow = Duration(milliseconds: 420);
 
 const categoryIcons = <String, IconData>{
   'shield': Icons.shield_outlined,
@@ -19,87 +16,97 @@ const categoryIcons = <String, IconData>{
 
 IconData iconFor(String key) => categoryIcons[key] ?? Icons.museum_outlined;
 
-/// Подпись секции: «КАТЕГОРИИ», «ПРОСМОТР», «МОДЕЛИ».
+/// Подпись секции: «КАТЕГОРИИ», «ПРОСМОТР», «МОДЕЛИ» и пояснение справа.
 class SectionLabel extends StatelessWidget {
-  const SectionLabel(this.text, {super.key, this.trailing});
+  const SectionLabel(this.text, {super.key, this.detail});
 
   final String text;
-  final Widget? trailing;
+  final String? detail;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
-          width: 5,
-          height: 5,
-          margin: const EdgeInsets.only(right: 9, bottom: 1),
-          decoration: BoxDecoration(
-            color: context.colors.primary,
-            borderRadius: BorderRadius.circular(1.5),
-          ),
-        ),
         Text(
           text.toUpperCase(),
-          style: context.text.labelSmall?.copyWith(
-            color: context.tones.muted,
-            letterSpacing: 1.3,
-          ),
+          style: context.text.labelSmall?.copyWith(letterSpacing: 1.2),
         ),
-        if (trailing != null) ...[const SizedBox(width: 12), Expanded(child: trailing!)],
+        if (detail != null) ...[
+          const SizedBox(width: AppSpacing.sm),
+          Expanded(
+            child: Text(
+              detail!,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.right,
+              style: context.text.labelSmall,
+            ),
+          ),
+        ],
       ],
     );
   }
 }
 
-/// Небольшая метка-«таблетка»: номер экспоната, признак 3D, счётчик фото.
+/// Небольшая плоская метка поверх фотографии или сцены: номер экспоната,
+/// признак 3D. Непрозрачная подложка — текст читается на любом снимке.
 class Tag extends StatelessWidget {
-  const Tag({
-    super.key,
-    required this.label,
-    this.icon,
-    this.accent = false,
-    this.compact = false,
-  });
+  const Tag({super.key, required this.label, this.icon});
 
   final String label;
   final IconData? icon;
-  final bool accent;
-  final bool compact;
 
   @override
   Widget build(BuildContext context) {
-    final tones = context.tones;
-    final color = accent ? context.colors.primary : tones.muted;
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: compact ? 7 : 9,
-        vertical: compact ? 3 : 4.5,
+      padding: const EdgeInsets.symmetric(
+        horizontal: AppSpacing.xs,
+        vertical: AppSpacing.xxs,
       ),
       decoration: BoxDecoration(
-        color: accent ? tones.accentSoft : tones.hairline.withValues(alpha: 0.55),
-        borderRadius: BorderRadius.circular(999),
-        border: Border.all(
-          color: accent ? color.withValues(alpha: 0.35) : Colors.transparent,
-        ),
+        color: AppColors.panel,
+        borderRadius: BorderRadius.circular(AppRadii.button),
+        border: Border.all(color: AppColors.divider),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           if (icon != null) ...[
-            Icon(icon, size: compact ? 11 : 12.5, color: color),
-            const SizedBox(width: 4),
+            Icon(icon, size: 14, color: AppColors.textSecondary),
+            const SizedBox(width: AppSpacing.xxs),
           ],
           Text(
             label,
-            style: context.text.labelSmall?.copyWith(
-              color: color,
-              letterSpacing: 0.4,
-              fontSize: compact ? 10 : 11,
-            ),
+            style: context.text.labelSmall?.copyWith(color: AppColors.textPrimary),
           ),
         ],
       ),
+    );
+  }
+}
+
+/// Панель: плоская подложка, радиус 16, разделитель 1 px.
+class SectionSurface extends StatelessWidget {
+  const SectionSurface({
+    super.key,
+    required this.child,
+    this.padding = EdgeInsets.zero,
+  });
+
+  final Widget child;
+  final EdgeInsets padding;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: AppColors.panel,
+        borderRadius: BorderRadius.circular(AppRadii.panel),
+        border: Border.all(color: AppColors.divider),
+      ),
+      clipBehavior: Clip.antiAlias,
+      padding: padding,
+      child: child,
     );
   }
 }
@@ -134,14 +141,16 @@ class _HoverableState extends State<Hoverable> {
   }
 }
 
-/// Иконка-кнопка на полупрозрачной подложке — поверх фотографий и 3D-сцены.
-class GlassButton extends StatelessWidget {
-  const GlassButton({
+/// Квадратная кнопка-иконка на непрозрачной подложке — поверх фотографий,
+/// 3D-сцены и в шапках панелей. При наведении и фокусе контур и иконка
+/// становятся латунными.
+class PanelIconButton extends StatelessWidget {
+  const PanelIconButton({
     super.key,
     required this.icon,
     required this.onPressed,
     required this.tooltip,
-    this.size = 36,
+    this.size = kTouchTarget,
   });
 
   final IconData icon;
@@ -151,28 +160,32 @@ class GlassButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final enabled = onPressed != null;
-    return Tooltip(
-      message: tooltip,
-      child: Material(
-        color: Colors.black.withValues(alpha: 0.38),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(kRadiusSmall),
-          side: BorderSide(color: Colors.white.withValues(alpha: 0.12)),
-        ),
-        clipBehavior: Clip.antiAlias,
-        child: InkWell(
-          onTap: onPressed,
-          child: SizedBox(
-            width: size,
-            height: size,
-            child: Icon(
-              icon,
-              size: size * 0.5,
-              color: Colors.white.withValues(alpha: enabled ? 0.92 : 0.35),
-            ),
-          ),
-        ),
+    return IconButton(
+      onPressed: onPressed,
+      tooltip: tooltip,
+      icon: Icon(icon, size: 20),
+      style: ButtonStyle(
+        fixedSize: WidgetStatePropertyAll(Size.square(size)),
+        minimumSize: WidgetStatePropertyAll(Size.square(size)),
+        padding: const WidgetStatePropertyAll(EdgeInsets.zero),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        backgroundColor: const WidgetStatePropertyAll(AppColors.panel),
+        shape: WidgetStateProperty.resolveWith((states) {
+          final Color color;
+          if (states.contains(WidgetState.disabled)) {
+            color = AppColors.divider;
+          } else if (states.contains(WidgetState.hovered) ||
+              states.contains(WidgetState.focused) ||
+              states.contains(WidgetState.pressed)) {
+            color = AppColors.brassHover;
+          } else {
+            color = AppColors.outline;
+          }
+          return RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppRadii.button),
+            side: BorderSide(color: color),
+          );
+        }),
       ),
     );
   }
@@ -190,16 +203,8 @@ class FadeSwitch extends StatelessWidget {
       duration: kMedium,
       switchInCurve: Curves.easeOutCubic,
       switchOutCurve: Curves.easeIn,
-      transitionBuilder: (child, animation) => FadeTransition(
-        opacity: animation,
-        child: SlideTransition(
-          position: Tween<Offset>(
-            begin: const Offset(0, 0.012),
-            end: Offset.zero,
-          ).animate(animation),
-          child: child,
-        ),
-      ),
+      transitionBuilder: (child, animation) =>
+          FadeTransition(opacity: animation, child: child),
       child: child,
     );
   }

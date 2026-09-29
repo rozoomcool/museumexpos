@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 import 'core/theme/app_theme.dart';
 import 'data/catalog.dart';
 import 'state/gallery_state.dart';
-import 'state/theme_controller.dart';
 import 'ui/home_screen.dart';
 
 void main() {
@@ -27,23 +26,14 @@ class ExpoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => ThemeController()),
-        ChangeNotifierProvider(
-          create: (_) => GalleryState(const CatalogRepository()),
-        ),
-      ],
-      child: Consumer<ThemeController>(
-        builder: (context, theme, _) => MaterialApp(
-          title: 'Экспонаты ЧР',
-          debugShowCheckedModeBanner: false,
-          themeMode: theme.mode,
-          theme: AppTheme.light(),
-          darkTheme: AppTheme.dark(),
-          scrollBehavior: const _AppScrollBehavior(),
-          home: const HomeScreen(),
-        ),
+    return ChangeNotifierProvider(
+      create: (_) => GalleryState(const CatalogRepository()),
+      child: MaterialApp(
+        title: 'Экспонаты ЧР',
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.dark(),
+        scrollBehavior: const _AppScrollBehavior(),
+        home: const HomeScreen(),
       ),
     );
   }

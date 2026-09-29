@@ -27,23 +27,18 @@ flutter:
     - assets/thumbs/
     - assets/photos/
     - assets/models/
+    - assets/images/brand/
 
   fonts:
-    - family: Inter
+    # Дизайн-система музея ЧГУ: Literata — заголовки и крупные числа,
+    # Manrope — текст и интерфейс. Лицензии OFL лежат рядом с файлами.
+    - family: Literata
       fonts:
-        - asset: assets/fonts/Inter-400.ttf
+        - asset: assets/fonts/Literata-Regular.ttf
           weight: 400
-        - asset: assets/fonts/Inter-500.ttf
-          weight: 500
-        - asset: assets/fonts/Inter-600.ttf
-          weight: 600
-        - asset: assets/fonts/Inter-700.ttf
-          weight: 700
-    - family: Playfair
+    - family: Manrope
       fonts:
-        - asset: assets/fonts/PlayfairDisplay-500.ttf
-          weight: 500
-        - asset: assets/fonts/PlayfairDisplay-600.ttf
+        - asset: assets/fonts/Manrope-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Manrope-SemiBold.ttf
           weight: 600
-        - asset: assets/fonts/PlayfairDisplay-700.ttf
-          weight: 700

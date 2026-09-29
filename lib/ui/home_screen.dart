@@ -8,7 +8,6 @@ import 'sections/categories_section.dart';
 import 'sections/models_section.dart';
 import 'sections/top_bar.dart';
 import 'sections/viewer_section.dart';
-import 'widgets/common.dart';
 
 /// Ширина, ниже которой раскладка «модель слева, описание справа» перестаёт
 /// быть читаемой и превращается в вертикальную.
@@ -50,9 +49,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final brightness = Theme.of(context).brightness;
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: AppTheme.overlayFor(brightness),
+      value: AppTheme.overlay,
       child: Scaffold(
         body: Focus(
           focusNode: _focusNode,
@@ -81,7 +79,7 @@ class _Content extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final compact = constraints.maxWidth < kCompactBreakpoint;
-        final pad = compact ? 16.0 : 24.0;
+        final pad = compact ? AppSpacing.md : AppSpacing.lg;
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -113,15 +111,12 @@ class _Loader extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        SizedBox(
-          width: 26,
-          height: 26,
-          child: CircularProgressIndicator(
-            strokeWidth: 2,
-            color: context.colors.primary,
-          ),
+        const SizedBox(
+          width: 32,
+          height: 32,
+          child: CircularProgressIndicator(strokeWidth: 2),
         ),
-        const SizedBox(height: 18),
+        const SizedBox(height: AppSpacing.md),
         Text('Загружаем коллекцию', style: context.text.bodyMedium),
       ],
     );
@@ -136,54 +131,35 @@ class _Failure extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(32),
+      padding: const EdgeInsets.all(AppSpacing.xl),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(Icons.error_outline, size: 34, color: context.colors.error),
-          const SizedBox(height: 16),
           Text('Не удалось прочитать каталог', style: context.text.headlineSmall),
-          const SizedBox(height: 8),
+          const SizedBox(height: AppSpacing.md),
           ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 460),
-            child: Text(
-              '${state.error}',
-              textAlign: TextAlign.center,
-              style: context.text.bodySmall,
+            constraints: const BoxConstraints(maxWidth: 480),
+            child: Container(
+              padding: const EdgeInsets.all(AppSpacing.md),
+              decoration: BoxDecoration(
+                color: AppColors.errorBg,
+                borderRadius: BorderRadius.circular(AppRadii.card),
+              ),
+              child: Text(
+                '${state.error}',
+                textAlign: TextAlign.center,
+                style: context.text.bodySmall?.copyWith(color: AppColors.error),
+              ),
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: AppSpacing.lg),
           FilledButton.icon(
             onPressed: state.load,
-            icon: const Icon(Icons.refresh, size: 18),
+            icon: const Icon(Icons.refresh, size: 20),
             label: const Text('Повторить'),
           ),
         ],
       ),
-    );
-  }
-}
-
-/// Общая «карточка» секции: подложка, скруглённые углы, тонкая рамка.
-class SectionSurface extends StatelessWidget {
-  const SectionSurface({
-    super.key,
-    required this.child,
-    this.padding = EdgeInsets.zero,
-  });
-
-  final Widget child;
-  final EdgeInsets padding;
-
-  @override
-  Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: context.tones.card,
-        borderRadius: BorderRadius.circular(kRadius),
-        border: Border.all(color: context.tones.hairline),
-      ),
-      child: Padding(padding: padding, child: child),
     );
   }
 }
